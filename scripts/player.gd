@@ -29,9 +29,15 @@ const FUEL_CONSUMPTION_RATE = 10.0 # Fuel used per second when boosting
 # Signal for UI updates
 signal stats_changed
 
+# Altitude calculation
+@onready var ray_cast = $RayCastDistanceToGround
+
 func _ready():
 	# Initialize the player
-	pass
+	# Make sure raycast is enabled and pointing downward
+	if ray_cast:
+		ray_cast.enabled = true
+		ray_cast.target_position = Vector2(0, 1000)  # Long enough to hit ground
 
 func _physics_process(delta: float) -> void:
 	# Skip physics if landed or crashed
@@ -72,9 +78,8 @@ func _physics_process(delta: float) -> void:
 	horizontal_speed = abs(velocity.x)
 	vertical_speed = velocity.y
 	
-	# Calculate altitude (this is a placeholder - you'll need to implement actual calculation)
-	# For example, raycast downward to find distance to ground
-	# altitude = ... 
+	# Calculate altitude using raycast
+	_update_altitude()
 	
 	# Emit signal for UI updates
 	emit_signal("stats_changed")
@@ -86,6 +91,19 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		_handle_collision(collision)
 
+# Calculate altitude using raycast
+func _update_altitude():
+	if ray_cast:
+		# Reset the raycast to ensure it's pointing down relative to ship orientation
+		ray_cast.target_position = Vector2(0, 1000).rotated(rotation)
+		
+		if ray_cast.is_colliding():
+			# Calculate the distance to the collision point
+			var collision_point = ray_cast.get_collision_point()
+			altitude = global_position.distance_to(collision_point)
+		else:
+			# If raycast doesn't hit anything, use a placeholder value
+			altitude = 1000.0  # Max altitude
 
 # Handle collision with the ground or other objects
 func _handle_collision(collision):

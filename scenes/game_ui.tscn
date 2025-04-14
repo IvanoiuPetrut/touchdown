@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ff3q6eymtcbm"]
+[gd_scene load_steps=3 format=3 uid="uid://ff3q6eymtcbm"]
 
+[ext_resource type="Script" uid="uid://kh1xct3n8evn" path="res://scripts/game_ui.gd" id="1_rns2u"]
 [ext_resource type="Texture2D" uid="uid://beu8rdhel6a2x" path="res://icon.svg" id="1_yubou"]
 
 [node name="GameUi" type="CanvasLayer"]
+script = ExtResource("1_rns2u")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 offset_left = 652.0
