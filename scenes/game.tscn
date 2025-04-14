@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckkxv2wa177uq"]
+
+[ext_resource type="PackedScene" uid="uid://chrsbtyr7g8th" path="res://scenes/player.tscn" id="1_uwrxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcj1u"]
+size = Vector2(1152, 50)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(534, 56)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(576, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_qcj1u")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -576.0
+offset_top = -25.0
+offset_right = 576.0
+offset_bottom = 25.0
+color = Color(0.372549, 0.462745, 0.498039, 1)
+
+[node name="LandingPad" type="ColorRect" parent="Ground"]
+offset_left = -100.0
+offset_top = -30.0
+offset_right = 100.0
+offset_bottom = -25.0
+color = Color(0.870588, 0.486275, 0.113725, 1)
