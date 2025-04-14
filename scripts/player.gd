@@ -52,24 +52,27 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		_handle_collision(collision)
 
+
 # Handle collision with the ground or other objects
 func _handle_collision(collision):
-	# Check if this is a safe landing
-	print(collision)
-	var is_safe = is_landing_safe()
+	var collider = collision.get_collider()
+	print("Collided with: ", collider.name)
 	
-	if is_safe:
-		# Successful landing
-		landed = true
-		velocity = Vector2.ZERO
-		print("Successful landing!")
-		# TODO: Play landing sound, show landing success message
+	# Check what type of object we collided with
+	if collider.name == "TileMapLayer" or collider is TileMap:
+		# Collision with terrain - always crash
+		_crash()
+	elif collider.name == "LandingPad" or collider.get_parent().name == "LandingPad":
+		# We hit the landing pad, check if it's a safe landing
+		var is_safe = is_landing_safe()
+		if is_safe:
+			_land_successfully()
+		else:
+			_crash()
 	else:
-		# Crash landing
-		crashed = true
-		velocity = Vector2.ZERO
-		print("Crash! Game over.")
-		# TODO: Play crash sound, show crash visuals/particles, show game over message
+		# Any other collision results in a crash
+		_crash()
+
 
 # Function to check if landing is safe
 func is_landing_safe() -> bool:
@@ -89,3 +92,13 @@ func reset_player():
 	velocity = Vector2.ZERO
 	rotation = 0
 	# Reset position would be managed by the game scene
+
+func _crash():
+	print("Crash!")
+	crashed = true
+	velocity = Vector2.ZERO
+	rotation = 0
+
+func _land_successfully():
+	print("Landed successfully!")
+	landed = true
