@@ -10,9 +10,24 @@ const DAMPENING = 0.01     # Air resistance/natural slowing factor (very small t
 const MAX_SAFE_LANDING_VELOCITY = 100.0  # Maximum velocity for safe landing
 const MAX_LANDING_ANGLE = 0.3  # Maximum angle (in radians) for safe landing (about 17 degrees)
 
+# Game variables - for UI display and game mechanics
+var fuel = 100.0           # Starting fuel amount
+var score = 0              # Player score
+var mission_time = 0.0     # Time elapsed in current mission
+var altitude = 0.0         # Current altitude from surface
+var horizontal_speed = 0.0 # Horizontal speed component
+var vertical_speed = 0.0   # Vertical speed component
+var mission_status = "IN PROGRESS" # Current mission status
+
 # State tracking
 var landed = false
 var crashed = false
+
+# Fuel consumption
+const FUEL_CONSUMPTION_RATE = 10.0 # Fuel used per second when boosting
+
+# Signal for UI updates
+signal stats_changed
 
 func _ready():
 	# Initialize the player
@@ -22,6 +37,9 @@ func _physics_process(delta: float) -> void:
 	# Skip physics if landed or crashed
 	if landed or crashed:
 		return
+		
+	# Update mission time
+	mission_time += delta
 		
 	# Apply gravity
 	velocity.y += GRAVITY * delta
@@ -34,16 +52,32 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle thrust/boost
 	if Input.is_action_pressed("boost"):
-		# Calculate thrust direction based on ship's rotation
-		var thrust_direction = Vector2(sin(rotation), -cos(rotation))
-		
-		# Apply thrust in the direction the ship is facing
-		velocity += thrust_direction * THRUST_POWER * delta
-		
-		# TODO: Add thruster particles/effects here
+		# Only boost if we have fuel
+		if fuel > 0:
+			# Calculate thrust direction based on ship's rotation
+			var thrust_direction = Vector2(sin(rotation), -cos(rotation))
+			
+			# Apply thrust in the direction the ship is facing
+			velocity += thrust_direction * THRUST_POWER * delta
+			
+			# Consume fuel
+			fuel = max(0, fuel - FUEL_CONSUMPTION_RATE * delta)
+			
+			# TODO: Add thruster particles/effects here
 	
 	# Apply very minor dampening/drag (to simulate space physics but still have some control)
 	velocity = velocity.lerp(Vector2.ZERO, DAMPENING)
+	
+	# Calculate speed components for UI
+	horizontal_speed = abs(velocity.x)
+	vertical_speed = velocity.y
+	
+	# Calculate altitude (this is a placeholder - you'll need to implement actual calculation)
+	# For example, raycast downward to find distance to ground
+	# altitude = ... 
+	
+	# Emit signal for UI updates
+	emit_signal("stats_changed")
 	
 	# Update position and detect collisions
 	var collision = move_and_collide(velocity * delta)
@@ -91,14 +125,48 @@ func reset_player():
 	crashed = false
 	velocity = Vector2.ZERO
 	rotation = 0
+	
+	# Reset game variables
+	fuel = 100.0
+	mission_time = 0.0
+	mission_status = "IN PROGRESS"
+	altitude = 0.0
+	horizontal_speed = 0.0
+	vertical_speed = 0.0
+	
+	# Score is not reset here as it should persist across attempts
+	
+	# Notify UI
+	emit_signal("stats_changed")
+	
 	# Reset position would be managed by the game scene
 
 func _crash():
 	print("Crash!")
 	crashed = true
 	velocity = Vector2.ZERO
-	rotation = 0
+	mission_status = "CRASHED"
+	
+	# Reduce score on crash
+	score = max(0, score - 25)
+	
+	# Notify UI
+	emit_signal("stats_changed")
 
 func _land_successfully():
 	print("Landed successfully!")
 	landed = true
+	mission_status = "LANDED"
+	
+	# Calculate landing score based on remaining fuel, time, and precision
+	var fuel_bonus = fuel * 2
+	var time_bonus = max(0, 300 - mission_time) # Bonus decreases with time
+	var precision_bonus = 100 # Placeholder - could be based on distance to target
+	
+	var landing_score = fuel_bonus + time_bonus + precision_bonus
+	score += landing_score
+	
+	print("Landing score: ", landing_score)
+	
+	# Notify UI
+	emit_signal("stats_changed")

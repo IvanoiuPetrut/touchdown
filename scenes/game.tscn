@@ -1,5 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://ckkxv2wa177uq"]
+[gd_scene load_steps=8 format=4 uid="uid://ckkxv2wa177uq"]
 
+[ext_resource type="Script" uid="uid://cicf7o51mr7vt" path="res://scripts/game_manager.gd" id="1_iywne"]
+[ext_resource type="PackedScene" uid="uid://ff3q6eymtcbm" path="res://scenes/game_ui.tscn" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://chrsbtyr7g8th" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://y2os7be6xva8" path="res://assets/sprites/rock_packed.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dakk67ugp7naq" path="res://scenes/landingPad.tscn" id="3_lnu2h"]
@@ -176,8 +178,13 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_yqjtg")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_iywne")
+
+[node name="GameUi" parent="." instance=ExtResource("1_lbhrr")]
+unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+unique_name_in_owner = true
 position = Vector2(534, 56)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
