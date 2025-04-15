@@ -30,4 +30,3 @@ unique_name_in_owner = true
 visible = false
 
 [node name="MenuUi" parent="GUI" instance=ExtResource("3_p57ef")]
-visible = false

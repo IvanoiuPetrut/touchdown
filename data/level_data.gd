@@ -30,7 +30,7 @@ const Database = {
 	},
 	"world_2" : {
 		"name" : "World 2",
-		"unlocked" : false,
+		"unlocked" : true,
 		"id" : 2,
 		"levels" : [
 			{
@@ -57,7 +57,7 @@ const Database = {
 	},
 	"world_3" : {
 		"name" : "World 3",
-		"unlocked" : false,
+		"unlocked" : true,
 		"id" : 3,
 		"levels" : [
 			{
