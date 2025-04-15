@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cwx8do1hurwi0" path="res://assets/sprites/worlds/world_1.png" id="2_tner2"]
 [ext_resource type="Texture2D" uid="uid://d24qb5eiqr2vn" path="res://assets/sprites/worlds/world_3.png" id="4_3y6qt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7rnr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_blc6w"]
 atlas = ExtResource("2_tner2")
-region = Rect2(288, 0, 96, 96)
+region = Rect2(1536, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -21,6 +21,10 @@ region = Rect2(96, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4f11"]
 atlas = ExtResource("2_tner2")
 region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7rnr"]
+atlas = ExtResource("2_tner2")
+region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c21ss"]
 atlas = ExtResource("2_tner2")
@@ -69,10 +73,6 @@ region = Rect2(1344, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfe6g"]
 atlas = ExtResource("2_tner2")
 region = Rect2(1440, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_blc6w"]
-atlas = ExtResource("2_tner2")
-region = Rect2(1536, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8bwr"]
 atlas = ExtResource("2_tner2")
@@ -364,9 +364,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvoa0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5886"]
 atlas = ExtResource("1_tner2")
-region = Rect2(2496, 0, 96, 96)
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
@@ -415,10 +415,6 @@ region = Rect2(960, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nyb0i"]
 atlas = ExtResource("1_tner2")
 region = Rect2(1056, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5886"]
-atlas = ExtResource("1_tner2")
-region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a478g"]
 atlas = ExtResource("1_tner2")
@@ -471,6 +467,10 @@ region = Rect2(2304, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_buf4k"]
 atlas = ExtResource("1_tner2")
 region = Rect2(2400, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvoa0"]
+atlas = ExtResource("1_tner2")
+region = Rect2(2496, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mixca"]
 atlas = ExtResource("1_tner2")
@@ -722,9 +722,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v0tb3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t78hc"]
 atlas = ExtResource("4_3y6qt")
-region = Rect2(2496, 0, 96, 96)
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
@@ -773,10 +773,6 @@ region = Rect2(960, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpxx4"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(1056, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t78hc"]
-atlas = ExtResource("4_3y6qt")
-region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u84mi"]
 atlas = ExtResource("4_3y6qt")
@@ -829,6 +825,10 @@ region = Rect2(2304, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kcea"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(2400, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0tb3"]
+atlas = ExtResource("4_3y6qt")
+region = Rect2(2496, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dvn2"]
 atlas = ExtResource("4_3y6qt")
@@ -1084,6 +1084,7 @@ animations = [{
 script = ExtResource("1_ld3xo")
 
 [node name="PanelWorldSelector" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1111,11 +1112,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_c7rnr")
+texture = SubResource("AtlasTexture_blc6w")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 3
+frame_index = 16
 auto_play = true
 playing = true
 
@@ -1123,11 +1124,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_dvoa0")
+texture = SubResource("AtlasTexture_e5886")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
-frame_index = 26
+frame_index = 12
 auto_play = true
 playing = true
 
@@ -1135,11 +1136,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_v0tb3")
+texture = SubResource("AtlasTexture_t78hc")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
-frame_index = 26
+frame_index = 12
 auto_play = true
 playing = true
 
@@ -1154,7 +1155,7 @@ layout_mode = 2
 text = "Deploy"
 
 [node name="PanelLevelSelector" type="PanelContainer" parent="."]
-visible = false
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1164,7 +1165,7 @@ grow_vertical = 2
 [node name="VBoxLevelSelector" type="VBoxContainer" parent="PanelLevelSelector"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PanelLevelSelector/VBoxLevelSelector"]
+[node name="BtnCloseLevelSelector" type="Button" parent="PanelLevelSelector/VBoxLevelSelector"]
 layout_mode = 2
 text = "Back"
 
@@ -1308,3 +1309,5 @@ text = "Land"
 
 [connection signal="pressed" from="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/BtnPreviousPlanet" to="." method="_on_btn_previous_planet_pressed"]
 [connection signal="pressed" from="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/BtnNextPlanet" to="." method="_on_btn_next_planet_pressed"]
+[connection signal="pressed" from="PanelWorldSelector/VBoxContainer/BtnDeploy" to="." method="_on_btn_deploy_pressed"]
+[connection signal="pressed" from="PanelLevelSelector/VBoxLevelSelector/BtnCloseLevelSelector" to="." method="_on_btn_close_level_selector_pressed"]

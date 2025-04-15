@@ -7,6 +7,9 @@ extends CanvasLayer
 @onready var btn_previous_planet: Button = %BtnPreviousPlanet
 @onready var btn_next_planet: Button = %BtnNextPlanet
 
+@onready var panel_world_selector: PanelContainer = %PanelWorldSelector
+@onready var panel_level_selector: PanelContainer = %PanelLevelSelector
+
 var current_planet_id : int = 1
 
 
@@ -15,7 +18,8 @@ func _ready() -> void:
 	_make_planets_invisible()
 	_make_planet_visible(current_planet_id)
 	_update_planet_selector_btns()
-
+	_toggle_panel_world_selector(true)
+	_toggle_panel_level_selector(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -51,6 +55,18 @@ func _update_planet_selector_btns():
 	else:
 		btn_next_planet.disabled = true
 
+func _toggle_panel_level_selector(should_show: bool):
+	if should_show:
+		panel_level_selector.visible = true
+	else:
+		panel_level_selector.visible = false
+
+func _toggle_panel_world_selector(should_show: bool):
+	if should_show:
+		panel_world_selector.visible = true
+	else:
+		panel_world_selector.visible = false
+
 func _on_btn_previous_planet_pressed() -> void:
 	if current_planet_id > 1:
 		current_planet_id -= 1
@@ -64,3 +80,11 @@ func _on_btn_next_planet_pressed() -> void:
 		_make_planets_invisible()
 		_make_planet_visible(current_planet_id)
 		_update_planet_selector_btns()
+
+func _on_btn_deploy_pressed() -> void:
+	_toggle_panel_world_selector(false)
+	_toggle_panel_level_selector(true)
+
+func _on_btn_close_level_selector_pressed() -> void:
+	_toggle_panel_world_selector(true)
+	_toggle_panel_level_selector(false)
