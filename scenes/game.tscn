@@ -9,6 +9,7 @@
 script = ExtResource("1_iywne")
 
 [node name="World2D" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Player" parent="World2D" instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
@@ -26,5 +27,7 @@ offset_bottom = 40.0
 
 [node name="GameUi" parent="GUI" instance=ExtResource("1_lbhrr")]
 unique_name_in_owner = true
+visible = false
 
 [node name="MenuUi" parent="GUI" instance=ExtResource("3_p57ef")]
+visible = false
