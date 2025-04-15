@@ -11,13 +11,13 @@ script = ExtResource("1_iywne")
 [node name="World2D" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="Camera2D" type="Camera2D" parent="World2D"]
+position = Vector2(316, -181)
+position_smoothing_enabled = true
+
 [node name="Player" parent="World2D" instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
 position = Vector2(314, -229)
-
-[node name="Camera2D" type="Camera2D" parent="World2D/Player"]
-position = Vector2(2, 48)
-position_smoothing_enabled = true
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
@@ -30,3 +30,4 @@ unique_name_in_owner = true
 visible = false
 
 [node name="MenuUi" parent="GUI" instance=ExtResource("3_p57ef")]
+unique_name_in_owner = true

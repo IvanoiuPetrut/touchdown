@@ -3,6 +3,7 @@ extends Node
 # References
 @onready var player = %Player
 @onready var game_ui = %GameUi
+@onready var menu_ui: CanvasLayer = %MenuUi
 @onready var world: Node2D = %World2D
 
 
@@ -13,9 +14,10 @@ var high_score = 0
 
 func _ready():
 
-	_change_level(Levels.Database["world_1"].id, Levels.Database["world_1"].levels[1].id)
+	#_change_level(Levels.Database["world_1"].id, Levels.Database["world_1"].levels[1].id)
 	# Connect to player stats changed signal
 	player.stats_changed.connect(_update_ui)
+	menu_ui.level_selected.connect(_handle_level_selection)
 	
 	# Initial UI update
 	_update_ui()
@@ -93,3 +95,8 @@ func _destroy_current_level():
 		if "Level" in child.name: 
 			child.queue_free()
 			break
+
+func _handle_level_selection(world_id: int, level_id: int):
+	print(world_id, " ", level_id)
+	_change_level(world_id, level_id)
+	menu_ui.visible = false

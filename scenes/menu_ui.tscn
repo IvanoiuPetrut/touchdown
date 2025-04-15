@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cwx8do1hurwi0" path="res://assets/sprites/worlds/world_1.png" id="2_tner2"]
 [ext_resource type="Texture2D" uid="uid://d24qb5eiqr2vn" path="res://assets/sprites/worlds/world_3.png" id="4_3y6qt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_blc6w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tst7x"]
 atlas = ExtResource("2_tner2")
-region = Rect2(1536, 0, 96, 96)
+region = Rect2(2304, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -74,6 +74,10 @@ region = Rect2(1344, 0, 96, 96)
 atlas = ExtResource("2_tner2")
 region = Rect2(1440, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_blc6w"]
+atlas = ExtResource("2_tner2")
+region = Rect2(1536, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8bwr"]
 atlas = ExtResource("2_tner2")
 region = Rect2(1632, 0, 96, 96)
@@ -101,10 +105,6 @@ region = Rect2(2112, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_76gf6"]
 atlas = ExtResource("2_tner2")
 region = Rect2(2208, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tst7x"]
-atlas = ExtResource("2_tner2")
-region = Rect2(2304, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8yinm"]
 atlas = ExtResource("2_tner2")
@@ -364,9 +364,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5886"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbof3"]
 atlas = ExtResource("1_tner2")
-region = Rect2(1152, 0, 96, 96)
+region = Rect2(3648, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
@@ -415,6 +415,10 @@ region = Rect2(960, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nyb0i"]
 atlas = ExtResource("1_tner2")
 region = Rect2(1056, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5886"]
+atlas = ExtResource("1_tner2")
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a478g"]
 atlas = ExtResource("1_tner2")
@@ -515,10 +519,6 @@ region = Rect2(3456, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_boks5"]
 atlas = ExtResource("1_tner2")
 region = Rect2(3552, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fbof3"]
-atlas = ExtResource("1_tner2")
-region = Rect2(3648, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vmoq"]
 atlas = ExtResource("1_tner2")
@@ -722,9 +722,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t78hc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7w45"]
 atlas = ExtResource("4_3y6qt")
-region = Rect2(1152, 0, 96, 96)
+region = Rect2(3648, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
@@ -773,6 +773,10 @@ region = Rect2(960, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpxx4"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(1056, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t78hc"]
+atlas = ExtResource("4_3y6qt")
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u84mi"]
 atlas = ExtResource("4_3y6qt")
@@ -873,10 +877,6 @@ region = Rect2(3456, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqyo3"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(3552, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7w45"]
-atlas = ExtResource("4_3y6qt")
-region = Rect2(3648, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3wfh"]
 atlas = ExtResource("4_3y6qt")
@@ -1112,11 +1112,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_blc6w")
+texture = SubResource("AtlasTexture_tst7x")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 16
+frame_index = 24
 auto_play = true
 playing = true
 
@@ -1124,11 +1124,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_e5886")
+texture = SubResource("AtlasTexture_fbof3")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
-frame_index = 12
+frame_index = 38
 auto_play = true
 playing = true
 
@@ -1136,11 +1136,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_t78hc")
+texture = SubResource("AtlasTexture_x7w45")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
-frame_index = 12
+frame_index = 38
 auto_play = true
 playing = true
 
@@ -1170,6 +1170,7 @@ layout_mode = 2
 text = "Back"
 
 [node name="PanelWorld1" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -1214,6 +1215,7 @@ offset_bottom = 278.0
 text = "L4"
 
 [node name="PanelWorld2" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -1259,6 +1261,7 @@ offset_bottom = 278.0
 text = "L4"
 
 [node name="PanelWorld3" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -1304,6 +1307,7 @@ offset_bottom = 118.0
 text = "L4"
 
 [node name="BtnLand" type="Button" parent="PanelLevelSelector/VBoxLevelSelector"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Land"
 

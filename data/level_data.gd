@@ -14,7 +14,7 @@ const Database = {
 			{
 				"name" : "Level 2",
 				"id" : 2,
-				"unlocked" : false,
+				"unlocked" : true,
 			},
 			{
 				"name" : "Level 3",
@@ -68,7 +68,7 @@ const Database = {
 			{
 				"name" : "Level 2",
 				"id" : 2,
-				"unlocked" : false,
+				"unlocked" : true,
 			},
 			{
 				"name" : "Level 3",
