@@ -7,10 +7,10 @@
 script = ExtResource("1_rns2u")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-offset_left = 652.0
-offset_top = 16.0
-offset_right = 692.0
-offset_bottom = 56.0
+offset_left = 468.0
+offset_top = 17.0
+offset_right = 569.0
+offset_bottom = 202.0
 columns = 2
 
 [node name="FuelIcon" type="TextureRect" parent="GridContainer"]

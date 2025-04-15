@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8xrnpbm6aoft"]
+
+[node name="MissionFailedUi" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mission failed"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Retry"
