@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 # References
 @onready var player = %Player
