@@ -6,6 +6,7 @@ extends Node
 
 # Game state
 var current_level = 1
+var current_world = 1
 var high_score = 0
 
 func _ready():
