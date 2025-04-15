@@ -17,6 +17,8 @@ func _ready():
 	#var level_scene = load(level_path)
 	#var newLevel = level_scene.instantiate()
 	#world.add_child(newLevel)
+	_change_level(1, 1)
+	_destroy_current_level()
 	_change_level(1, 2)
 	#var level_scene = load(level_path)
 	#if level_scene:
@@ -107,4 +109,9 @@ func _change_level(worldNumber: int, levelNumber: int):
 	var level_scene = load(level_path)
 	var newLevel = level_scene.instantiate()
 	world.add_child(newLevel)
-	pass
+
+func _destroy_current_level():
+	for child in world.get_children():
+		if "Level" in child.name: 
+			child.queue_free()
+			break
