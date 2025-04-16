@@ -1,0 +1,167 @@
+[gd_scene load_steps=16 format=3 uid="uid://cmvjs4nec4841"]
+
+[ext_resource type="Texture2D" uid="uid://nl1wns0lv0qg" path="res://assets/sprites/sky.png" id="1_6oqpv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qebxc"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(0, 3220, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjsm1"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(740, 3220, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yisv"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(1480, 3220, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e45fi"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(2220, 3220, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5xlc"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(2960, 3220, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp760"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(3700, 3220, 740, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8h5pt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qebxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjsm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yisv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e45fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5xlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp760")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8wn1"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(0, 4140, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdl33"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(740, 4140, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7tmo"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(1480, 4140, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auhd7"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(2220, 4140, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkrb8"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(2960, 4140, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f34nc"]
+atlas = ExtResource("1_6oqpv")
+region = Rect2(3700, 4140, 740, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oofio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8wn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdl33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7tmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auhd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkrb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34nc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GameBackground" type="Node2D"]
+
+[node name="BlueStars" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 0, 740, 460)
+
+[node name="RedStars" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 460, 740, 460)
+
+[node name="White20" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 920, 740, 460)
+
+[node name="White40" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 1380, 740, 460)
+
+[node name="White60" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 1840, 740, 460)
+
+[node name="White80" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 2300, 740, 460)
+
+[node name="White100" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 2760, 740, 460)
+
+[node name="BigStars" type="Sprite2D" parent="."]
+position = Vector2(333, 185)
+texture = ExtResource("1_6oqpv")
+region_enabled = true
+region_rect = Rect2(0, 3680, 740, 460)
+
+[node name="SmallStars" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 172)
+sprite_frames = SubResource("SpriteFrames_8h5pt")
+autoplay = "default"
+frame = 1
+frame_progress = 0.815278
+
+[node name="BigStars2" type="AnimatedSprite2D" parent="."]
+position = Vector2(325, 182)
+sprite_frames = SubResource("SpriteFrames_oofio")
+autoplay = "default"
+frame = 5
+frame_progress = 0.735818
