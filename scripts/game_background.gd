@@ -16,10 +16,9 @@ extends Node2D
 # Parallax factors (lower = moves less, higher = moves more)
 var parallax_layers = []
 var base_positions = []
+var initial_player_position = Vector2.ZERO
 
 func _ready() -> void:
-	# Set the middle of this node to the player's position
-	_follow_player()
 	# Setup parallax layers with different movement factors
 	parallax_layers = [
 		{"sprite": blue_stars, "factor": 0.02},
@@ -37,6 +36,11 @@ func _ready() -> void:
 	# Store original positions
 	for layer in parallax_layers:
 		base_positions.append(layer.sprite.position)
+	
+	# Set initial values
+	if player:
+		initial_player_position = player.position
+		_follow_player()
 
 
 func _process(delta: float) -> void:
@@ -52,17 +56,16 @@ func _follow_player() -> void:
 
 func _apply_parallax_effect() -> void:
 	if player:
-		# Get player velocity
-		var player_velocity = player.velocity
+		# Calculate player's movement from initial position
+		var player_movement = player.position - initial_player_position
 		
 		# Apply parallax effect to each layer
 		for i in range(parallax_layers.size()):
 			var layer = parallax_layers[i]
 			var base_pos = base_positions[i]
 			
-			# Calculate offset based on player velocity and layer factor
-			# We negate the velocity to create a parallax effect (background moves opposite to player)
-			var offset = -player_velocity * layer.factor
+			# Calculate offset based on player position and layer factor
+			var offset = -player_movement * layer.factor
 			
 			# Apply offset to sprite position
 			layer.sprite.position = base_pos + offset
