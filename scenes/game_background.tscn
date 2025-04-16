@@ -115,10 +115,12 @@ script = ExtResource("1_fjsm1")
 
 [node name="Background" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_t5xlc")
-position = Vector2(318, 182)
+position = Vector2(349, 230)
+scale = Vector2(1.40217, 1.40217)
 texture = ExtResource("2_3yisv")
 
 [node name="Node2D" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 position = Vector2(333, 185)
 
 [node name="BlueStars" type="Sprite2D" parent="Node2D"]

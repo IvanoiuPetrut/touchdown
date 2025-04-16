@@ -18,6 +18,8 @@ var parallax_layers = []
 var base_positions = []
 
 func _ready() -> void:
+	# Set the middle of this node to the player's position
+	_follow_player()
 	# Setup parallax layers with different movement factors
 	parallax_layers = [
 		{"sprite": blue_stars, "factor": 0.02},
@@ -38,6 +40,17 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	_follow_player()
+	_apply_parallax_effect()
+
+func _follow_player() -> void:
+	if player:
+		position = player.position
+		# Move the node up by half the screen height to center the player
+		position.y -= get_viewport_rect().size.y / 2
+		position.x -= get_viewport_rect().size.x / 2
+
+func _apply_parallax_effect() -> void:
 	if player:
 		# Get player velocity
 		var player_velocity = player.velocity
