@@ -1,6 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmvjs4nec4841"]
+[gd_scene load_steps=20 format=3 uid="uid://cmvjs4nec4841"]
 
 [ext_resource type="Texture2D" uid="uid://nl1wns0lv0qg" path="res://assets/sprites/sky.png" id="1_6oqpv"]
+[ext_resource type="Script" uid="uid://dck2cdkx20kju" path="res://scripts/game_background.gd" id="1_fjsm1"]
+[ext_resource type="Texture2D" uid="uid://xmo01bp7xhml" path="res://assets/sprites/sky_background3.png" id="2_3yisv"]
+[ext_resource type="Shader" uid="uid://c0o3hlpgh5h8e" path="res://shaders/game_background.gdshader" id="2_e45fi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5xlc"]
+shader = ExtResource("2_e45fi")
+shader_parameter/first_color = Color(0.93041, 0.783169, 0.974945, 1)
+shader_parameter/second_color = Color(0.192026, 0.839259, 0.771126, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qebxc"]
 atlas = ExtResource("1_6oqpv")
@@ -103,64 +111,65 @@ animations = [{
 }]
 
 [node name="GameBackground" type="Node2D"]
+script = ExtResource("1_fjsm1")
 
-[node name="BlueStars" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_t5xlc")
+position = Vector2(318, 182)
+texture = ExtResource("2_3yisv")
+
+[node name="Node2D" type="Node2D" parent="."]
 position = Vector2(333, 185)
+
+[node name="BlueStars" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 0, 740, 460)
 
-[node name="RedStars" type="Sprite2D" parent="."]
-position = Vector2(333, 185)
+[node name="RedStars" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 460, 740, 460)
 
-[node name="White20" type="Sprite2D" parent="."]
-position = Vector2(333, 185)
+[node name="White20" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 920, 740, 460)
 
-[node name="White40" type="Sprite2D" parent="."]
-position = Vector2(333, 185)
+[node name="White40" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 1380, 740, 460)
 
-[node name="White60" type="Sprite2D" parent="."]
-position = Vector2(333, 185)
+[node name="White60" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 1840, 740, 460)
 
-[node name="White80" type="Sprite2D" parent="."]
-position = Vector2(333, 185)
+[node name="White80" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 2300, 740, 460)
 
-[node name="White100" type="Sprite2D" parent="."]
-position = Vector2(333, 185)
+[node name="White100" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 2760, 740, 460)
 
-[node name="BigStars" type="Sprite2D" parent="."]
-position = Vector2(333, 185)
+[node name="BigStars" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_6oqpv")
 region_enabled = true
 region_rect = Rect2(0, 3680, 740, 460)
 
-[node name="SmallStars" type="AnimatedSprite2D" parent="."]
-position = Vector2(320, 172)
+[node name="SmallStars" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-13, -13)
 sprite_frames = SubResource("SpriteFrames_8h5pt")
 autoplay = "default"
 frame = 1
 frame_progress = 0.815278
 
-[node name="BigStars2" type="AnimatedSprite2D" parent="."]
-position = Vector2(325, 182)
+[node name="BigStars2" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-8, -3)
 sprite_frames = SubResource("SpriteFrames_oofio")
 autoplay = "default"
 frame = 5
