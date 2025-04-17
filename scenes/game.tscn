@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckkxv2wa177uq"]
+[gd_scene load_steps=6 format=3 uid="uid://ckkxv2wa177uq"]
 
 [ext_resource type="Script" uid="uid://cicf7o51mr7vt" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://ff3q6eymtcbm" path="res://scenes/game_ui.tscn" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://chrsbtyr7g8th" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d1b3nc4whww66" path="res://scenes/menu_ui.tscn" id="3_p57ef"]
-[ext_resource type="PackedScene" uid="uid://3puw11sl6r4d" path="res://scenes/levels/world_1/level_1.tscn" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cmvjs4nec4841" path="res://scenes/game_background.tscn" id="5_iywne"]
 
 [node name="GameController" type="Node"]
@@ -19,17 +18,13 @@ position = Vector2(-12, -363)
 [node name="Player" parent="World2D" instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(575, -604)
+position = Vector2(29, -485)
 
 [node name="Camera2D" type="Camera2D" parent="World2D/Player"]
 position = Vector2(2, 48)
 position_smoothing_enabled = true
 
-[node name="Level1" parent="." instance=ExtResource("4_p57ef")]
-position = Vector2(428, -83)
-
 [node name="GUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -37,8 +32,6 @@ offset_bottom = 40.0
 
 [node name="GameUi" parent="GUI" instance=ExtResource("1_lbhrr")]
 unique_name_in_owner = true
-visible = false
 
 [node name="MenuUi" parent="GUI" instance=ExtResource("3_p57ef")]
 unique_name_in_owner = true
-visible = false

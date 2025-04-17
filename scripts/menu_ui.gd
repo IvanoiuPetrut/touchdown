@@ -194,6 +194,8 @@ func _on_level_button_pressed(world_id: int, level_id: int) -> void:
 func _on_land_button_pressed() -> void:
 	# This will select the current world's first level (or you can customize this)
 	if current_planet_id && selected_level_id:
+		print("World: ", current_planet_id)
+		print("Planet: ", selected_level_id)
 		emit_signal("level_selected", current_planet_id, selected_level_id)
-		_toggle_panel_level_selector(false)
-		_toggle_panel_world_selector(true)
+		# _toggle_panel_level_selector(false)
+		# _toggle_panel_world_selector(true)

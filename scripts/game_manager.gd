@@ -13,13 +13,9 @@ var current_world = 1
 var high_score = 0
 
 func _ready():
-
-	#_change_level(Levels.Database["world_1"].id, Levels.Database["world_1"].levels[1].id)
-	# Connect to player stats changed signal
 	player.stats_changed.connect(_update_ui)
 	menu_ui.level_selected.connect(_handle_level_selection)
-	
-	# Initial UI update
+	world.process_mode = Node.PROCESS_MODE_DISABLED
 	_update_ui()
 
 func _process(delta):
@@ -97,6 +93,8 @@ func _destroy_current_level():
 			break
 
 func _handle_level_selection(world_id: int, level_id: int):
-	print(world_id, " ", level_id)
+	print("GameManager: ", world_id, " ", level_id)
 	_change_level(world_id, level_id)
 	menu_ui.visible = false
+	world.process_mode = Node.PROCESS_MODE_INHERIT
+	menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
