@@ -13,10 +13,14 @@ var current_world = 1
 var high_score = 0
 var level_complete_timer = null
 var has_landed = false
+var initial_player_position = Vector2.ZERO
 
 func _ready():
+
+
 	player.stats_changed.connect(_update_ui)
 	menu_ui.level_selected.connect(_handle_level_selection)
+	initial_player_position = player.position
 	has_landed = false
 	world.process_mode = Node.PROCESS_MODE_DISABLED
 	game_ui.visible = false  # Hide game UI initially
@@ -31,6 +35,8 @@ func _ready():
 	
 	# Load saved progress
 	Levels.load_progress()
+	menu_ui._update_planet_selector_btns()
+
 
 func _process(delta):
 	# Update UI elements that need constant updating (like mission time)
@@ -137,7 +143,8 @@ func _handle_level_selection(world_id: int, level_id: int):
 	
 	# Reset player when starting a new level
 	player.reset_player()
-
+	player.position = initial_player_position
+	has_landed = false
 # Unlocks the next level or world
 func _unlock_next_level():
 	var next_level = current_level + 1
@@ -162,6 +169,7 @@ func _unlock_next_level():
 			Levels.Database[world_key].levels[next_level - 1].unlocked = true
 	
 	print("Unlocked: World " + str(next_world) + " Level " + str(next_level))
+	menu_ui._update_planet_selector_btns()
 	
 	# Save progress after unlocking
 	Levels.save_progress()

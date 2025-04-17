@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cwx8do1hurwi0" path="res://assets/sprites/worlds/world_1.png" id="2_tner2"]
 [ext_resource type="Texture2D" uid="uid://d24qb5eiqr2vn" path="res://assets/sprites/worlds/world_3.png" id="4_3y6qt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mtqtc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yinm"]
 atlas = ExtResource("2_tner2")
-region = Rect2(2016, 0, 96, 96)
+region = Rect2(2400, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -94,6 +94,10 @@ region = Rect2(1824, 0, 96, 96)
 atlas = ExtResource("2_tner2")
 region = Rect2(1920, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtqtc"]
+atlas = ExtResource("2_tner2")
+region = Rect2(2016, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkpwb"]
 atlas = ExtResource("2_tner2")
 region = Rect2(2112, 0, 96, 96)
@@ -105,10 +109,6 @@ region = Rect2(2208, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tst7x"]
 atlas = ExtResource("2_tner2")
 region = Rect2(2304, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8yinm"]
-atlas = ExtResource("2_tner2")
-region = Rect2(2400, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7da0"]
 atlas = ExtResource("2_tner2")
@@ -364,9 +364,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ld3xo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0q77"]
 atlas = ExtResource("1_tner2")
-region = Rect2(192, 0, 96, 96)
+region = Rect2(4224, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
@@ -375,6 +375,10 @@ region = Rect2(0, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3y6qt"]
 atlas = ExtResource("1_tner2")
 region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld3xo"]
+atlas = ExtResource("1_tner2")
+region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whfv8"]
 atlas = ExtResource("1_tner2")
@@ -539,10 +543,6 @@ region = Rect2(4032, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wh0o0"]
 atlas = ExtResource("1_tner2")
 region = Rect2(4128, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0q77"]
-atlas = ExtResource("1_tner2")
-region = Rect2(4224, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hlu2"]
 atlas = ExtResource("1_tner2")
@@ -722,9 +722,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlb21"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_45bgq"]
 atlas = ExtResource("4_3y6qt")
-region = Rect2(192, 0, 96, 96)
+region = Rect2(4224, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
@@ -733,6 +733,10 @@ region = Rect2(0, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1fdgy"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlb21"]
+atlas = ExtResource("4_3y6qt")
+region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmd6c"]
 atlas = ExtResource("4_3y6qt")
@@ -897,10 +901,6 @@ region = Rect2(4032, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5aiao"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(4128, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_45bgq"]
-atlas = ExtResource("4_3y6qt")
-region = Rect2(4224, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lpuvb"]
 atlas = ExtResource("4_3y6qt")
@@ -1112,11 +1112,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_mtqtc")
+texture = SubResource("AtlasTexture_8yinm")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 21
+frame_index = 25
 auto_play = true
 playing = true
 
@@ -1124,11 +1124,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_ld3xo")
+texture = SubResource("AtlasTexture_j0q77")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
-frame_index = 2
+frame_index = 44
 auto_play = true
 playing = true
 
@@ -1136,11 +1136,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_xlb21")
+texture = SubResource("AtlasTexture_45bgq")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
-frame_index = 2
+frame_index = 44
 auto_play = true
 playing = true
 
