@@ -19,6 +19,7 @@ func _ready():
 	menu_ui.level_selected.connect(_handle_level_selection)
 	has_landed = false
 	world.process_mode = Node.PROCESS_MODE_DISABLED
+	game_ui.visible = false  # Hide game UI initially
 	_update_ui()
 	
 	# Create a timer for delayed actions after level completion
@@ -130,6 +131,7 @@ func _handle_level_selection(world_id: int, level_id: int):
 	print("GameManager: ", world_id, " ", level_id)
 	_change_level(world_id, level_id)
 	menu_ui.visible = false
+	game_ui.visible = true  # Show game UI when starting game
 	world.process_mode = Node.PROCESS_MODE_INHERIT
 	menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	
@@ -162,6 +164,7 @@ func _unlock_next_level():
 	print("Unlocked: World " + str(next_world) + " Level " + str(next_level))
 	
 	# Save progress after unlocking
+	Levels.save_progress()
 
 # Timer timeout handler for level completion
 func _on_level_complete_timer_timeout():
@@ -176,6 +179,7 @@ func _return_to_menu():
 	world.process_mode = Node.PROCESS_MODE_DISABLED
 	menu_ui.process_mode = Node.PROCESS_MODE_INHERIT
 	menu_ui.visible = true
+	game_ui.visible = false  # Hide game UI when returning to menu
 	
 	# Update the level buttons to reflect newly unlocked levels
 	menu_ui._update_level_buttons()
