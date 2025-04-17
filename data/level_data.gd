@@ -1,6 +1,6 @@
 class_name Levels
 
-const Database = {
+static var Database = {
 	"world_1" : {
 		"name" : "World 1",
 		"unlocked" : true,
@@ -14,7 +14,7 @@ const Database = {
 			{
 				"name" : "Level 2",
 				"id" : 2,
-				"unlocked" : true,
+				"unlocked" : false,
 			},
 			{
 				"name" : "Level 3",
@@ -30,13 +30,13 @@ const Database = {
 	},
 	"world_2" : {
 		"name" : "World 2",
-		"unlocked" : true,
+		"unlocked" : false,
 		"id" : 2,
 		"levels" : [
 			{
 				"name" : "Level 1",
 				"id" : 1,
-				"unlocked" : true,
+				"unlocked" : false,
 			},
 			{
 				"name" : "Level 2",
@@ -57,7 +57,7 @@ const Database = {
 	},
 	"world_3" : {
 		"name" : "World 3",
-		"unlocked" : true,
+		"unlocked" : false,
 		"id" : 3,
 		"levels" : [
 			{
@@ -68,7 +68,7 @@ const Database = {
 			{
 				"name" : "Level 2",
 				"id" : 2,
-				"unlocked" : true,
+				"unlocked" : false,
 			},
 			{
 				"name" : "Level 3",
@@ -83,3 +83,24 @@ const Database = {
 		]
 	}
 }
+
+# Save level unlock status
+static func save_progress():
+	var save_game = FileAccess.open("user://level_progress.save", FileAccess.WRITE)
+	var json_string = JSON.stringify(Database)
+	save_game.store_line(json_string)
+	print("Game progress saved")
+
+# Load level unlock status
+static func load_progress():
+	if FileAccess.file_exists("user://level_progress.save"):
+		var save_game = FileAccess.open("user://level_progress.save", FileAccess.READ)
+		var json_string = save_game.get_line()
+		
+		var json = JSON.new()
+		var parse_result = json.parse(json_string)
+		if parse_result == OK:
+			var loaded_data = json.data
+			if loaded_data is Dictionary:
+				Database = loaded_data
+				print("Game progress loaded")

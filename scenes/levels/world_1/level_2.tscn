@@ -137,4 +137,4 @@ tile_map_data = PackedByteArray("AAABAAMAAAACAAEAAAABAAIAAAACAAEAAAABAAEAAAACAAE
 tile_set = SubResource("TileSet_vnnk5")
 
 [node name="LandingPad" parent="." instance=ExtResource("2_nrmnb")]
-position = Vector2(-163, -94)
+position = Vector2(-162, -113)
