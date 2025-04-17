@@ -19,13 +19,14 @@ position = Vector2(-12, -363)
 [node name="Player" parent="World2D" instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(596, -322)
+position = Vector2(575, -604)
 
 [node name="Camera2D" type="Camera2D" parent="World2D/Player"]
 position = Vector2(2, 48)
 position_smoothing_enabled = true
 
 [node name="Level1" parent="." instance=ExtResource("4_p57ef")]
+position = Vector2(428, -83)
 
 [node name="GUI" type="Control" parent="."]
 visible = false
