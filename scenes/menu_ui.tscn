@@ -1,14 +1,69 @@
-[gd_scene load_steps=159 format=3 uid="uid://d1b3nc4whww66"]
+[gd_scene load_steps=173 format=3 uid="uid://d1b3nc4whww66"]
 
 [ext_resource type="Script" uid="uid://dnra5sqwfaxhr" path="res://scripts/planet_texture_animated.gd" id="1_b5e6c"]
 [ext_resource type="Script" uid="uid://t01dgxvtcbkt" path="res://scripts/menu_ui.gd" id="1_ld3xo"]
 [ext_resource type="Texture2D" uid="uid://u7ck037ymv8d" path="res://assets/sprites/worlds/world_2.png" id="1_tner2"]
+[ext_resource type="Texture2D" uid="uid://xmo01bp7xhml" path="res://assets/sprites/sky_background3.png" id="2_a4f11"]
+[ext_resource type="Texture2D" uid="uid://bud7yifoh5nly" path="res://assets/sprites/sky_one_layer.png" id="2_m2dew"]
+[ext_resource type="FontFile" uid="uid://eexyunjt7oau" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_oa3d6"]
 [ext_resource type="Texture2D" uid="uid://cwx8do1hurwi0" path="res://assets/sprites/worlds/world_1.png" id="2_tner2"]
 [ext_resource type="Texture2D" uid="uid://d24qb5eiqr2vn" path="res://assets/sprites/worlds/world_3.png" id="4_3y6qt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8yinm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(3700, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf5lx"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(0, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03d0g"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(740, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01m71"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(1480, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(2220, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(2960, 0, 740, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rn2cm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf5lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03d0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01m71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kid13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kybdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_risoy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kj6ed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76gf6"]
 atlas = ExtResource("2_tner2")
-region = Rect2(2400, 0, 96, 96)
+region = Rect2(2208, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -102,13 +157,13 @@ region = Rect2(2016, 0, 96, 96)
 atlas = ExtResource("2_tner2")
 region = Rect2(2112, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_76gf6"]
-atlas = ExtResource("2_tner2")
-region = Rect2(2208, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tst7x"]
 atlas = ExtResource("2_tner2")
 region = Rect2(2304, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yinm"]
+atlas = ExtResource("2_tner2")
+region = Rect2(2400, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7da0"]
 atlas = ExtResource("2_tner2")
@@ -364,9 +419,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0q77"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hjnm"]
 atlas = ExtResource("1_tner2")
-region = Rect2(4224, 0, 96, 96)
+region = Rect2(1632, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
@@ -435,10 +490,6 @@ region = Rect2(1440, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucw02"]
 atlas = ExtResource("1_tner2")
 region = Rect2(1536, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7hjnm"]
-atlas = ExtResource("1_tner2")
-region = Rect2(1632, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5apq"]
 atlas = ExtResource("1_tner2")
@@ -543,6 +594,10 @@ region = Rect2(4032, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wh0o0"]
 atlas = ExtResource("1_tner2")
 region = Rect2(4128, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0q77"]
+atlas = ExtResource("1_tner2")
+region = Rect2(4224, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hlu2"]
 atlas = ExtResource("1_tner2")
@@ -722,9 +777,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_45bgq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_osxti"]
 atlas = ExtResource("4_3y6qt")
-region = Rect2(4224, 0, 96, 96)
+region = Rect2(1632, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
@@ -793,10 +848,6 @@ region = Rect2(1440, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuk1g"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(1536, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_osxti"]
-atlas = ExtResource("4_3y6qt")
-region = Rect2(1632, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1fo2t"]
 atlas = ExtResource("4_3y6qt")
@@ -901,6 +952,10 @@ region = Rect2(4032, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5aiao"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(4128, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45bgq"]
+atlas = ExtResource("4_3y6qt")
+region = Rect2(4224, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lpuvb"]
 atlas = ExtResource("4_3y6qt")
@@ -1080,8 +1135,37 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa3d6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2dew"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4f11"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="MenuUi" type="CanvasLayer"]
 script = ExtResource("1_ld3xo")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+offset_left = -48.0
+offset_top = -46.0
+offset_right = 692.0
+offset_bottom = 414.0
+texture = ExtResource("2_a4f11")
+
+[node name="MainMenuBackgroundAnimated" type="TextureRect" parent="."]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 690.0
+offset_bottom = 410.0
+texture = SubResource("AtlasTexture_risoy")
+script = ExtResource("1_b5e6c")
+sprites = SubResource("SpriteFrames_rn2cm")
+frame_index = 5
+auto_play = true
+playing = true
+metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
 
 [node name="PanelWorldSelector" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -1090,19 +1174,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kj6ed")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelWorldSelector"]
 layout_mode = 2
 
-[node name="LabelGameTitle" type="Label" parent="PanelWorldSelector/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelWorldSelector/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="LabelLogo" type="Label" parent="PanelWorldSelector/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_oa3d6")
+theme_override_font_sizes/font_size = 32
 text = "Touch Down"
+horizontal_alignment = 1
 
 [node name="HBoxWorldSelector" type="HBoxContainer" parent="PanelWorldSelector/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BtnPreviousPlanet" type="Button" parent="PanelWorldSelector/VBoxContainer/HBoxWorldSelector"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelWorldSelector/VBoxContainer/HBoxWorldSelector"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="BtnPreviousPlanet" type="Button" parent="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/MarginContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -1112,10 +1213,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_8yinm")
+texture = SubResource("AtlasTexture_76gf6")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
+frame_index = 23
 auto_play = true
 playing = true
 
@@ -1123,10 +1225,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_j0q77")
+texture = SubResource("AtlasTexture_7hjnm")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
+frame_index = 17
 auto_play = true
 playing = true
 
@@ -1134,25 +1237,43 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_45bgq")
+texture = SubResource("AtlasTexture_osxti")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
+frame_index = 17
 auto_play = true
 playing = true
 
-[node name="BtnNextPlanet" type="Button" parent="PanelWorldSelector/VBoxContainer/HBoxWorldSelector"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelWorldSelector/VBoxContainer/HBoxWorldSelector"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 6
+
+[node name="BtnNextPlanet" type="Button" parent="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 text = ">"
 
-[node name="BtnDeploy" type="Button" parent="PanelWorldSelector/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelWorldSelector/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+
+[node name="BtnDeploy" type="Button" parent="PanelWorldSelector/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Deploy"
 
 [node name="PanelLevelSelector" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1162,14 +1283,22 @@ grow_vertical = 2
 [node name="VBoxLevelSelector" type="VBoxContainer" parent="PanelLevelSelector"]
 layout_mode = 2
 
-[node name="BtnCloseLevelSelector" type="Button" parent="PanelLevelSelector/VBoxLevelSelector"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelLevelSelector/VBoxLevelSelector"]
 layout_mode = 2
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="BtnCloseLevelSelector" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Back"
 
 [node name="PanelWorld1" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa3d6")
 
 [node name="Line2D" type="Line2D" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld1"]
 position = Vector2(1, -27)
@@ -1216,6 +1345,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2dew")
 
 [node name="Line2D" type="Line2D" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2"]
 position = Vector2(1, -27)
@@ -1259,9 +1389,9 @@ text = "L4"
 
 [node name="PanelWorld3" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_a4f11")
 
 [node name="Line2D" type="Line2D" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3"]
 position = Vector2(1, -27)
@@ -1303,12 +1433,18 @@ offset_right = 485.0
 offset_bottom = 118.0
 text = "L4"
 
-[node name="BtnLand" type="Button" parent="PanelLevelSelector/VBoxLevelSelector"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelLevelSelector/VBoxLevelSelector"]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="BtnLand" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Land"
 
-[connection signal="pressed" from="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/BtnPreviousPlanet" to="." method="_on_btn_previous_planet_pressed"]
-[connection signal="pressed" from="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/BtnNextPlanet" to="." method="_on_btn_next_planet_pressed"]
-[connection signal="pressed" from="PanelWorldSelector/VBoxContainer/BtnDeploy" to="." method="_on_btn_deploy_pressed"]
-[connection signal="pressed" from="PanelLevelSelector/VBoxLevelSelector/BtnCloseLevelSelector" to="." method="_on_btn_close_level_selector_pressed"]
+[connection signal="pressed" from="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/MarginContainer2/BtnPreviousPlanet" to="." method="_on_btn_previous_planet_pressed"]
+[connection signal="pressed" from="PanelWorldSelector/VBoxContainer/HBoxWorldSelector/MarginContainer/BtnNextPlanet" to="." method="_on_btn_next_planet_pressed"]
+[connection signal="pressed" from="PanelWorldSelector/VBoxContainer/MarginContainer2/BtnDeploy" to="." method="_on_btn_deploy_pressed"]
+[connection signal="pressed" from="PanelLevelSelector/VBoxLevelSelector/MarginContainer2/BtnCloseLevelSelector" to="." method="_on_btn_close_level_selector_pressed"]
