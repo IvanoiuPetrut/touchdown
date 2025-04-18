@@ -1116,7 +1116,6 @@ texture = SubResource("AtlasTexture_8yinm")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 25
 auto_play = true
 playing = true
 
@@ -1128,7 +1127,6 @@ texture = SubResource("AtlasTexture_j0q77")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
-frame_index = 44
 auto_play = true
 playing = true
 
@@ -1140,7 +1138,6 @@ texture = SubResource("AtlasTexture_45bgq")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
-frame_index = 44
 auto_play = true
 playing = true
 

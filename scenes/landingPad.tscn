@@ -1,14 +1,110 @@
-[gd_scene load_steps=2 format=3 uid="uid://dakk67ugp7naq"]
+[gd_scene load_steps=16 format=3 uid="uid://dakk67ugp7naq"]
+
+[ext_resource type="Texture2D" uid="uid://dw2pw8j0h6wmk" path="res://assets/sprites/landing_pad-Sheet.png" id="1_6rjwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssxai"]
-size = Vector2(128, 28)
+size = Vector2(31, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wja23"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(0, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrnsp"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(32, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sneud"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(64, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knl3w"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(96, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtixy"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(128, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hlvo"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(160, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xs6l"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(192, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6p1j"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(224, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1bsc"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(256, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqfpn"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(288, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d7cf"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(320, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1weu0"]
+atlas = ExtResource("1_6rjwa")
+region = Rect2(352, 0, 32, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbmoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wja23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrnsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sneud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knl3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtixy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hlvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xs6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6p1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1bsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqfpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d7cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1weu0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="LandingPad" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_ssxai")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -64.0
 offset_top = -14.0
 offset_right = 64.0
@@ -16,8 +112,14 @@ offset_bottom = 14.0
 color = Color(0.372549, 0.462745, 0.498039, 1)
 
 [node name="LandingPad" type="ColorRect" parent="."]
+visible = false
 offset_left = -63.0
 offset_top = -19.0
 offset_right = 61.0
 offset_bottom = -14.0
 color = Color(0.870588, 0.486275, 0.113725, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_jbmoo")
+autoplay = "default"

@@ -1,13 +1,13 @@
 extends CanvasLayer
 
 # UI Elements - all simple labels
-@onready var fuel_label = $GridContainer/FuelLabel
-@onready var score_label = $GridContainer/ScoreLabel
-@onready var mission_time_label = $GridContainer/MissionTimeLabel
-@onready var altitude_label = $GridContainer/AltitudeLabel
-@onready var horizontal_speed_label = $GridContainer/HorizontalSpeedLabel
-@onready var vertical_speed_label = $GridContainer/VerticalSpeedLabel
-@onready var mission_status_label = $GridContainer/MissionStatusLabel
+@onready var fuel_label = $PanelContainer/GridContainer/FuelLabel
+@onready var score_label = $PanelContainer/GridContainer/ScoreLabel
+@onready var mission_time_label = $PanelContainer/GridContainer/MissionTimeLabel
+@onready var altitude_label = $PanelContainer/GridContainer/AltitudeLabel
+@onready var horizontal_speed_label = $PanelContainer/GridContainer/HorizontalSpeedLabel
+@onready var vertical_speed_label = $PanelContainer/GridContainer/VerticalSpeedLabel
+@onready var mission_status_label = $PanelContainer/GridContainer/MissionStatusLabel
 #@onready var high_score_label = $GridContainer/HighScoreLabel
 #@onready var level_label = $GridContainer/LevelLabel
 
