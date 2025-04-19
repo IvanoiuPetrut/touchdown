@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var thurster_sound: AudioStreamPlayer2D = $ThursterSound
+@onready var explosion_sound: AudioStreamPlayer2D = $ExplosionSound
+@onready var success_landing: AudioStreamPlayer2D = $successLanding
+
 # Physics parameters
 const GRAVITY = 200.0      # Gravity force
 const THRUST_POWER = 400.0 # Thrust power when boosting
@@ -42,6 +46,9 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# Skip physics if landed or crashed
 	if landed or crashed:
+		# Make sure thruster sound is stopped when landed or crashed
+		if thurster_sound.playing:
+			thurster_sound.stop()
 		return
 		
 	# Update mission time
@@ -69,7 +76,19 @@ func _physics_process(delta: float) -> void:
 			# Consume fuel
 			fuel = max(0, fuel - FUEL_CONSUMPTION_RATE * delta)
 			
+			# Play thruster sound if it's not already playing
+			if !thurster_sound.playing:
+				thurster_sound.play()
+			
 			# TODO: Add thruster particles/effects here
+		else:
+			# Stop thruster sound when not boosting
+			if thurster_sound.playing:
+				thurster_sound.stop()
+	else:
+		# Stop thruster sound when not boosting
+		if thurster_sound.playing:
+			thurster_sound.stop()
 	
 	# Apply very minor dampening/drag (to simulate space physics but still have some control)
 	velocity = velocity.lerp(Vector2.ZERO, DAMPENING)
@@ -165,6 +184,9 @@ func _crash():
 	velocity = Vector2.ZERO
 	mission_status = "CRASHED"
 	
+	# Play explosion sound
+	explosion_sound.play()
+	
 	# Reduce score on crash
 	score = max(0, score - 25)
 	
@@ -175,6 +197,9 @@ func _land_successfully():
 	print("Landed successfully!")
 	landed = true
 	mission_status = "LANDED"
+	
+	# Play success landing sound
+	success_landing.play()
 	
 	# Calculate landing score based on remaining fuel, time, and precision
 	var fuel_bonus = fuel * 2

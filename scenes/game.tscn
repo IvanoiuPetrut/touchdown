@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckkxv2wa177uq"]
+[gd_scene load_steps=7 format=3 uid="uid://ckkxv2wa177uq"]
 
 [ext_resource type="Script" uid="uid://cicf7o51mr7vt" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://ff3q6eymtcbm" path="res://scenes/game_ui.tscn" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://chrsbtyr7g8th" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d1b3nc4whww66" path="res://scenes/menu_ui.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cmvjs4nec4841" path="res://scenes/game_background.tscn" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://caoo4a0apn1so" path="res://assets/sounds/Music.ogg" id="6_p57ef"]
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_iywne")
@@ -35,3 +36,8 @@ unique_name_in_owner = true
 
 [node name="MenuUi" parent="GUI" instance=ExtResource("3_p57ef")]
 unique_name_in_owner = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_p57ef")
+autoplay = true
+bus = &"Music"

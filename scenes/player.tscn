@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://chrsbtyr7g8th"]
+[gd_scene load_steps=7 format=3 uid="uid://chrsbtyr7g8th"]
 
 [ext_resource type="Script" uid="uid://cbfa3knotytqh" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://1b6w8qq6nwyv" path="res://assets/sprites/player.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://b1pas11j0wstr" path="res://assets/sounds/thrusterFire.ogg" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://dlejt1ooh43td" path="res://assets/sounds/explosion.ogg" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://dik2hwdrnh1s4" path="res://assets/sounds/successLanding.ogg" id="5_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(10, 13.5)
@@ -20,3 +23,15 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="RayCastDistanceToGround" type="RayCast2D" parent="."]
 position = Vector2(0, 1)
 target_position = Vector2(0, 47)
+
+[node name="ThursterSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qhqgy")
+bus = &"PlayerSfx"
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqkch")
+bus = &"PlayerSfx"
+
+[node name="successLanding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qlg0r")
+bus = &"PlayerSfx"
