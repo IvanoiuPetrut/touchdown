@@ -51,6 +51,14 @@ func _physics_process(delta: float) -> void:
 			thurster_sound.stop()
 		return
 		
+	# Check if player ran out of fuel and is not yet landed
+	if fuel <= 0 and !landed and velocity.y > 0:
+		# If player is falling and has no fuel, check if they're in a safe landing position
+		var landing_possible = _check_landing_possible()
+		if !landing_possible:
+			# If landing is not possible, consider it a failed mission
+			_out_of_fuel()
+	
 	# Update mission time
 	mission_time += delta
 		
@@ -210,6 +218,27 @@ func _land_successfully():
 	score += landing_score
 	
 	print("Landing score: ", landing_score)
+	
+	# Notify UI
+	emit_signal("stats_changed")
+
+# Function to check if a safe landing is still possible with no fuel
+func _check_landing_possible() -> bool:
+	# This is a simplified check - could be more complex depending on game mechanics
+	# Check if there's a landing pad below the player and we're not moving too fast laterally
+	return ray_cast.is_colliding() and ray_cast.get_collider().name == "LandingPad" and abs(velocity.x) < MAX_SAFE_LANDING_VELOCITY / 2
+
+# Handle out of fuel situation
+func _out_of_fuel():
+	print("Out of fuel!")
+	crashed = true
+	mission_status = "OUT OF FUEL"
+	
+	# Play explosion sound since this is also a failure
+	explosion_sound.play()
+	
+	# Reduce score on fuel-out (less than a crash)
+	score = max(0, score - 15)
 	
 	# Notify UI
 	emit_signal("stats_changed")

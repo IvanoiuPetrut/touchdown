@@ -84,7 +84,10 @@ func _update_time_display():
 # Check the current game state and update UI
 func _check_game_state():
 	if player.crashed:
-		_handle_crash()
+		if player.mission_status == "OUT OF FUEL":
+			_handle_out_of_fuel()
+		else:
+			_handle_crash()
 	elif player.landed:
 		if not has_landed:
 			_handle_successful_landing()
@@ -93,6 +96,17 @@ func _check_game_state():
 func _handle_crash():
 	# Show crash message via mission status
 	game_ui.show_message("CRASHED!")
+	
+	# Wait for a moment before returning to menu
+	if not level_complete_timer.is_stopped():
+		return
+	
+	level_complete_timer.start()
+
+# Handle out of fuel situation
+func _handle_out_of_fuel():
+	# Show out of fuel message via mission status
+	game_ui.show_message("OUT OF FUEL!")
 	
 	# Wait for a moment before returning to menu
 	if not level_complete_timer.is_stopped():

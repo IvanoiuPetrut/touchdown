@@ -1162,7 +1162,6 @@ offset_bottom = 410.0
 texture = SubResource("AtlasTexture_kid13")
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_rn2cm")
-frame_index = 3
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
@@ -1217,7 +1216,6 @@ texture = SubResource("AtlasTexture_8kxst")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 35
 auto_play = true
 playing = true
 
@@ -1229,7 +1227,6 @@ texture = SubResource("AtlasTexture_nyb0i")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
-frame_index = 11
 auto_play = true
 playing = true
 
@@ -1241,7 +1238,6 @@ texture = SubResource("AtlasTexture_rpxx4")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
-frame_index = 11
 auto_play = true
 playing = true
 
