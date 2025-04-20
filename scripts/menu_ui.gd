@@ -43,6 +43,7 @@ const GeneralEnums = preload("res://data/enums/general.gd")
 
 # Signal for level selection
 signal level_selected(world_id: int, level_id: int)
+signal world_changed(world_id: int)
 
 var current_planet_id : int = 1
 var selected_level_id : int
@@ -200,6 +201,7 @@ func _on_button_next_planet_pressed() -> void:
 		_update_planet_selector_btns()
 		_update_level_buttons() # Update level buttons for new planet
 		# Update background gradient with new planet colors
+		emit_signal("world_changed", current_planet_id)
 		set_background_gradient(current_planet_id - 1)
 
 
@@ -211,6 +213,7 @@ func _on_button_previous_planet_pressed() -> void:
 		_update_planet_selector_btns()
 		_update_level_buttons() # Update level buttons for new planet
 		# Update background gradient with new planet colors
+		emit_signal("world_changed", current_planet_id)
 		set_background_gradient(current_planet_id - 1)
 
 # Sets up the background shader with custom colors

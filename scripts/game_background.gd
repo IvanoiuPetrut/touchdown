@@ -1,5 +1,7 @@
 extends Node2D
 
+const GeneralEnums = preload("res://data/enums/general.gd")
+
 @onready var player: CharacterBody2D = %Player
 @onready var blue_stars: Sprite2D = $Node2D/BlueStars
 @onready var red_stars: Sprite2D = $Node2D/RedStars
@@ -11,6 +13,7 @@ extends Node2D
 @onready var big_stars: Sprite2D = $Node2D/BigStars
 @onready var small_stars: AnimatedSprite2D = $Node2D/SmallStars
 @onready var big_stars_2: AnimatedSprite2D = $Node2D/BigStars2
+@onready var background: Sprite2D = $Background
 
 
 # Parallax factors (lower = moves less, higher = moves more)
@@ -69,3 +72,9 @@ func _apply_parallax_effect() -> void:
 			
 			# Apply offset to sprite position
 			layer.sprite.position = base_pos + offset
+
+func _set_gradient(color_index: int):
+	var planet_colors = GeneralEnums.new().get_planet_colors(color_index)
+	if background:
+		background.material.set_shader_parameter("first_color", Color(planet_colors[0]))
+		background.material.set_shader_parameter("second_color", Color(planet_colors[1]))

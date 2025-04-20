@@ -5,6 +5,7 @@ extends Node
 @onready var game_ui = %GameUi
 @onready var menu_ui: CanvasLayer = %MenuUi
 @onready var world: Node2D = %World2D
+@onready var game_background: Node2D = %GameBackground
 
 
 # Game state
@@ -18,10 +19,12 @@ var initial_player_position = Vector2.ZERO
 func _ready():
 	player.stats_changed.connect(_update_ui)
 	menu_ui.level_selected.connect(_handle_level_selection)
+	menu_ui.world_changed.connect(_handle_world_change)
 	initial_player_position = player.position
 	has_landed = false
 	world.process_mode = Node.PROCESS_MODE_DISABLED
 	game_ui.visible = false  # Hide game UI initially
+	game_background._set_gradient(0)
 	_update_ui()
 	
 	# Create a timer for delayed actions after level completion
@@ -203,3 +206,7 @@ func _return_to_menu():
 	
 	# Update the level buttons to reflect newly unlocked levels
 	menu_ui._update_level_buttons()
+
+func _handle_world_change(world_id: int):
+	var color_index = world_id - 1;
+	game_background._set_gradient(color_index)
