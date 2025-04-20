@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+# Add this line to preload the general.gd file for the enums
+const GeneralEnums = preload("res://data/enums/general.gd")
+
 @onready var planet_1: AnimatedTextureRect = %Planet1
 @onready var planet_2: AnimatedTextureRect = %Planet2
 @onready var planet_3: AnimatedTextureRect = %Planet3
@@ -36,6 +39,8 @@ extends CanvasLayer
 
 @onready var btn_land: Button = %ButtonLand
 
+@onready var main_menu_background: TextureRect = $MainMenuBackground
+
 # Signal for level selection
 signal level_selected(world_id: int, level_id: int)
 
@@ -52,6 +57,7 @@ func _ready() -> void:
 	_update_level_buttons()
 	_toggle_panel_world_selector(true)
 	_toggle_panel_level_selector(false)
+	_setup_background_shader()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -193,6 +199,8 @@ func _on_button_next_planet_pressed() -> void:
 		_make_planet_visible(current_planet_id)
 		_update_planet_selector_btns()
 		_update_level_buttons() # Update level buttons for new planet
+		# Update background gradient with new planet colors
+		set_background_gradient(current_planet_id - 1)
 
 
 func _on_button_previous_planet_pressed() -> void:
@@ -202,3 +210,20 @@ func _on_button_previous_planet_pressed() -> void:
 		_make_planet_visible(current_planet_id)
 		_update_planet_selector_btns()
 		_update_level_buttons() # Update level buttons for new planet
+		# Update background gradient with new planet colors
+		set_background_gradient(current_planet_id - 1)
+
+# Sets up the background shader with custom colors
+func _setup_background_shader() -> void:
+	if main_menu_background and main_menu_background.material:
+		# Get colors from the enum based on current planet
+		var planet_colors = GeneralEnums.new().get_planet_colors(current_planet_id - 1)  # Adjust index to match enum
+		main_menu_background.material.set_shader_parameter("first_color", Color(planet_colors[0]))
+		main_menu_background.material.set_shader_parameter("second_color", Color(planet_colors[1]))
+
+# You can also create a method to change colors dynamically
+func set_background_gradient(planet_type: int) -> void:
+	if main_menu_background and main_menu_background.material:
+		var planet_colors = GeneralEnums.new().get_planet_colors(planet_type)
+		main_menu_background.material.set_shader_parameter("first_color", Color(planet_colors[0]))
+		main_menu_background.material.set_shader_parameter("second_color", Color(planet_colors[1]))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=3 uid="uid://d1b3nc4whww66"]
+[gd_scene load_steps=179 format=3 uid="uid://d1b3nc4whww66"]
 
 [ext_resource type="Script" uid="uid://dnra5sqwfaxhr" path="res://scripts/planet_texture_animated.gd" id="1_b5e6c"]
 [ext_resource type="Script" uid="uid://t01dgxvtcbkt" path="res://scripts/menu_ui.gd" id="1_ld3xo"]
@@ -16,10 +16,6 @@ shader = ExtResource("2_qn5cm")
 shader_parameter/first_color = Color(0.202538, 0.888111, 0.753163, 1)
 shader_parameter/second_color = Color(0.921325, 0, 0.348812, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
-atlas = ExtResource("2_m2dew")
-region = Rect2(2960, 0, 740, 460)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf5lx"]
 atlas = ExtResource("2_m2dew")
 region = Rect2(0, 0, 740, 460)
@@ -35,6 +31,10 @@ region = Rect2(1480, 0, 740, 460)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
 atlas = ExtResource("2_m2dew")
 region = Rect2(2220, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(2960, 0, 740, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
 atlas = ExtResource("2_m2dew")
@@ -68,9 +68,9 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kj6ed"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_85hah"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wsbm"]
 atlas = ExtResource("2_tner2")
-region = Rect2(3264, 0, 96, 96)
+region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -119,10 +119,6 @@ region = Rect2(960, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ydycs"]
 atlas = ExtResource("2_tner2")
 region = Rect2(1056, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3wsbm"]
-atlas = ExtResource("2_tner2")
-region = Rect2(1152, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srj0i"]
 atlas = ExtResource("2_tner2")
@@ -207,6 +203,10 @@ region = Rect2(3072, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo43o"]
 atlas = ExtResource("2_tner2")
 region = Rect2(3168, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85hah"]
+atlas = ExtResource("2_tner2")
+region = Rect2(3264, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kxst"]
 atlas = ExtResource("2_tner2")
@@ -426,6 +426,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvhmp"]
+atlas = ExtResource("1_tner2")
+region = Rect2(960, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
 region = Rect2(0, 0, 96, 96)
@@ -465,10 +469,6 @@ region = Rect2(768, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yhjg7"]
 atlas = ExtResource("1_tner2")
 region = Rect2(864, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvhmp"]
-atlas = ExtResource("1_tner2")
-region = Rect2(960, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nyb0i"]
 atlas = ExtResource("1_tner2")
@@ -784,6 +784,10 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj131"]
+atlas = ExtResource("4_3y6qt")
+region = Rect2(960, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(0, 0, 96, 96)
@@ -823,10 +827,6 @@ region = Rect2(768, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1slev"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(864, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cj131"]
-atlas = ExtResource("4_3y6qt")
-region = Rect2(960, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpxx4"]
 atlas = ExtResource("4_3y6qt")
@@ -1142,6 +1142,8 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qn5cm"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5he78"]
 
 [sub_resource type="Curve" id="Curve_jcchn"]
@@ -1174,10 +1176,9 @@ offset_left = -50.0
 offset_top = -50.0
 offset_right = 690.0
 offset_bottom = 410.0
-texture = SubResource("AtlasTexture_kybdo")
+texture = SubResource("AtlasTexture_sf5lx")
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_rn2cm")
-frame_index = 4
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
@@ -1222,11 +1223,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_85hah")
+texture = SubResource("AtlasTexture_3wsbm")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 34
+frame_index = 12
 auto_play = true
 playing = true
 
@@ -1234,10 +1235,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_tner2")
+texture = SubResource("AtlasTexture_gvhmp")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
+frame_index = 10
 auto_play = true
 playing = true
 
@@ -1245,10 +1247,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_ljdrx")
+texture = SubResource("AtlasTexture_cj131")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
+frame_index = 10
 auto_play = true
 playing = true
 
@@ -1282,6 +1285,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qn5cm")
 
 [node name="VBoxLevelSelector" type="VBoxContainer" parent="PanelLevelSelector"]
 layout_mode = 2
