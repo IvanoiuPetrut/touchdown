@@ -118,7 +118,7 @@ func _handle_out_of_fuel():
 func _handle_successful_landing():
 	# Show success message via mission status
 	has_landed = true
-	game_ui.show_message("SUCCESSFUL LANDING!")
+	game_ui.show_message("LANDED!")
 	
 	# Unlock the next level
 	_unlock_next_level()

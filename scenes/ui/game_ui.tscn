@@ -1,94 +1,192 @@
-[gd_scene load_steps=3 format=3 uid="uid://ff3q6eymtcbm"]
+[gd_scene load_steps=12 format=3 uid="uid://ff3q6eymtcbm"]
 
 [ext_resource type="Script" uid="uid://kh1xct3n8evn" path="res://scripts/game_ui.gd" id="1_rns2u"]
-[ext_resource type="Texture2D" uid="uid://beu8rdhel6a2x" path="res://icon.svg" id="1_yubou"]
+[ext_resource type="Texture2D" uid="uid://dqs1i4os0oxwc" path="res://assets/sprites/ui/game_ui.png" id="2_fct72"]
+[ext_resource type="Script" uid="uid://dnra5sqwfaxhr" path="res://scripts/planet_texture_animated.gd" id="3_ru5ln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrkc0"]
+atlas = ExtResource("2_fct72")
+region = Rect2(0, 0, 99, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvtb5"]
+atlas = ExtResource("2_fct72")
+region = Rect2(99, 0, 99, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7elv"]
+atlas = ExtResource("2_fct72")
+region = Rect2(198, 0, 99, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fftnl"]
+atlas = ExtResource("2_fct72")
+region = Rect2(297, 0, 99, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1bdg"]
+atlas = ExtResource("2_fct72")
+region = Rect2(396, 0, 99, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxde6"]
+atlas = ExtResource("2_fct72")
+region = Rect2(495, 0, 99, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opxtl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrkc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvtb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7elv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fftnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1bdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxde6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crnce"]
 
 [node name="GameUi" type="CanvasLayer"]
 script = ExtResource("1_rns2u")
 
+[node name="AnimatedTextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_qrkc0")
+script = ExtResource("3_ru5ln")
+sprites = SubResource("SpriteFrames_opxtl")
+auto_play = true
+playing = true
+metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -659.0
-offset_top = -178.0
-offset_right = -521.0
-offset_bottom = 7.0
-grow_horizontal = 0
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 71.0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_crnce")
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-columns = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 8
 
-[node name="FuelIcon" type="TextureRect" parent="PanelContainer/GridContainer"]
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_yubou")
-expand_mode = 2
-stretch_mode = 4
 
-[node name="FuelLabel" type="Label" parent="PanelContainer/GridContainer"]
+[node name="FuelIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "FuelLabel"
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "Fuel"
 
-[node name="ScoreIcon" type="TextureRect" parent="PanelContainer/GridContainer"]
+[node name="FuelLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("1_yubou")
-expand_mode = 2
-stretch_mode = 4
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "92%"
 
-[node name="ScoreLabel" type="Label" parent="PanelContainer/GridContainer"]
+[node name="Margin" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "FuelLabel"
 
-[node name="MissionTimeIcon" type="TextureRect" parent="PanelContainer/GridContainer"]
+[node name="ScoreIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("1_yubou")
-expand_mode = 2
-stretch_mode = 4
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "Score"
 
-[node name="MissionTimeLabel" type="Label" parent="PanelContainer/GridContainer"]
+[node name="ScoreLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "FuelLabel"
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "431"
 
-[node name="AltitudeIcon" type="TextureRect" parent="PanelContainer/GridContainer"]
+[node name="Margin2" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("1_yubou")
-expand_mode = 2
-stretch_mode = 4
 
-[node name="AltitudeLabel" type="Label" parent="PanelContainer/GridContainer"]
+[node name="TimeIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "FuelLabel"
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "Time"
 
-[node name="HorizontalSpeedIcon" type="TextureRect" parent="PanelContainer/GridContainer"]
+[node name="TimeLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("1_yubou")
-expand_mode = 2
-stretch_mode = 4
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "00:00"
 
-[node name="HorizontalSpeedLabel" type="Label" parent="PanelContainer/GridContainer"]
+[node name="Margin3" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "FuelLabel"
 
-[node name="VerticalSpeedIcon" type="TextureRect" parent="PanelContainer/GridContainer"]
+[node name="AltitudeIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("1_yubou")
-expand_mode = 2
-stretch_mode = 4
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "Altitude"
 
-[node name="VerticalSpeedLabel" type="Label" parent="PanelContainer/GridContainer"]
+[node name="AltitudeLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "FuelLabel"
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "103.9"
 
-[node name="MissionStatusIcon" type="TextureRect" parent="PanelContainer/GridContainer"]
+[node name="Margin4" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-texture = ExtResource("1_yubou")
-expand_mode = 2
-stretch_mode = 4
 
-[node name="MissionStatusLabel" type="Label" parent="PanelContainer/GridContainer"]
+[node name="HorizontalSpeedIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "FuelLabel"
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "H Speed"
+
+[node name="HorizontalSpeedLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "202.3"
+
+[node name="Margin5" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="VerticalSpeedIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "V Speed"
+
+[node name="VerticalSpeedLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "123.6"
+
+[node name="Margin6" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="StatusIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "Status"
+
+[node name="StatusLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 8
+text = "In progress"
+
+[node name="Margin7" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
