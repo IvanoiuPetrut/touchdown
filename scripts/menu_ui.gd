@@ -115,15 +115,13 @@ func _on_btn_next_planet_pressed() -> void:
 		_update_planet_selector_btns()
 		_update_level_buttons() # Update level buttons for new planet
 
-func _on_btn_deploy_pressed() -> void:
+
+
+func _on_button_deploy_pressed() -> void:
 	_update_level_buttons() # Update button states in case there were changes
 	_show_correct_world_panel() # Show the panel for current planet
 	_toggle_panel_world_selector(false)
 	_toggle_panel_level_selector(true)
-
-func _on_btn_close_level_selector_pressed() -> void:
-	_toggle_panel_world_selector(true)
-	_toggle_panel_level_selector(false)
 
 # Connect signals for all level buttons
 func _connect_level_buttons() -> void:
@@ -199,3 +197,8 @@ func _on_land_button_pressed() -> void:
 		emit_signal("level_selected", current_planet_id, selected_level_id)
 		# _toggle_panel_level_selector(false)
 		# _toggle_panel_world_selector(true)
+
+
+func _on_button_close_level_select_pressed() -> void:
+	_toggle_panel_world_selector(true)
+	_toggle_panel_level_selector(false)
