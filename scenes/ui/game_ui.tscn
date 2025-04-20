@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dqs1i4os0oxwc" path="res://assets/sprites/ui/game_ui.png" id="2_fct72"]
 [ext_resource type="Script" uid="uid://dnra5sqwfaxhr" path="res://scripts/planet_texture_animated.gd" id="3_ru5ln"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7elv"]
+atlas = ExtResource("2_fct72")
+region = Rect2(198, 0, 99, 360)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrkc0"]
 atlas = ExtResource("2_fct72")
 region = Rect2(0, 0, 99, 360)
@@ -11,10 +15,6 @@ region = Rect2(0, 0, 99, 360)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvtb5"]
 atlas = ExtResource("2_fct72")
 region = Rect2(99, 0, 99, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7elv"]
-atlas = ExtResource("2_fct72")
-region = Rect2(198, 0, 99, 360)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fftnl"]
 atlas = ExtResource("2_fct72")
@@ -62,9 +62,10 @@ script = ExtResource("1_rns2u")
 [node name="AnimatedTextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("AtlasTexture_qrkc0")
+texture = SubResource("AtlasTexture_k7elv")
 script = ExtResource("3_ru5ln")
 sprites = SubResource("SpriteFrames_opxtl")
+frame_index = 2
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
@@ -97,21 +98,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
 theme_override_font_sizes/font_size = 16
 text = "92%"
-
-[node name="Margin" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-
-[node name="ScoreIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
-theme_override_font_sizes/font_size = 8
-text = "Score"
-
-[node name="ScoreLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
-theme_override_font_sizes/font_size = 16
-text = "431"
 
 [node name="Margin2" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -190,3 +176,18 @@ text = "In progress"
 
 [node name="Margin7" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
+
+[node name="Margin" type="Control" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ScoreIcon" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.392157, 0.4, 0.403922, 1)
+theme_override_font_sizes/font_size = 8
+text = "High Score"
+
+[node name="ScoreLabel" type="Label" parent="PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.298039, 0.305882, 0.313726, 1)
+theme_override_font_sizes/font_size = 16
+text = "431"
