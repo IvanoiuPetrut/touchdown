@@ -5,6 +5,11 @@ extends CharacterBody2D
 @onready var success_landing: AudioStreamPlayer2D = $successLanding
 @onready var thurster_particles: CPUParticles2D = $ThursterParticles
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var camera_2d: Camera2D = %Camera2D
+
+# Camera settings
+const CAMERA_OFFSET = Vector2(-43, 0)  # Offset camera to the left of player
+const BOOST_SHAKE_AMOUNT = 1.0     # Intensity of camera shake when boosting
 
 # Physics parameters
 const GRAVITY = 200.0      # Gravity force
@@ -44,6 +49,10 @@ func _ready():
 	if ray_cast:
 		ray_cast.enabled = true
 		ray_cast.target_position = Vector2(0, 1000)  # Long enough to hit ground
+	
+	# Set camera offset
+	if camera_2d:
+		camera_2d.offset = CAMERA_OFFSET
 
 func _physics_process(delta: float) -> void:
 	# Skip physics if landed or crashed
@@ -92,6 +101,13 @@ func _physics_process(delta: float) -> void:
 			
 			# Enable thruster particles
 			thurster_particles.emitting = true
+			
+			# Add camera shake when boosting
+			if camera_2d:
+				camera_2d.offset = CAMERA_OFFSET + Vector2(
+					randf_range(-BOOST_SHAKE_AMOUNT, BOOST_SHAKE_AMOUNT),
+					randf_range(-BOOST_SHAKE_AMOUNT, BOOST_SHAKE_AMOUNT)
+				)
 		else:
 			# Stop thruster sound when out of fuel
 			if thurster_sound.playing:
@@ -104,6 +120,10 @@ func _physics_process(delta: float) -> void:
 			thurster_sound.stop()
 		# Disable thruster particles when not boosting
 		thurster_particles.emitting = false
+		
+		# Reset camera position when not boosting
+		if camera_2d:
+			camera_2d.offset = CAMERA_OFFSET
 	
 	# Apply very minor dampening/drag (to simulate space physics but still have some control)
 	velocity = velocity.lerp(Vector2.ZERO, DAMPENING)
