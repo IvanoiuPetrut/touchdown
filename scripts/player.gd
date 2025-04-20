@@ -188,6 +188,7 @@ func reset_player():
 	
 	# Ensure thruster particles are off
 	thurster_particles.emitting = false
+	animation_player.play("RESET")
 	
 	# Score is not reset here as it should persist across attempts
 	
@@ -206,7 +207,7 @@ func _crash():
 	explosion_sound.play()
 	
 	# Start animation for explosion
-	#animation_player.play("explosion")
+	animation_player.play("explosion")
 	
 	# Reduce score on crash
 	score = max(0, score - 25)

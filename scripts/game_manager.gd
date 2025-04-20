@@ -16,8 +16,6 @@ var has_landed = false
 var initial_player_position = Vector2.ZERO
 
 func _ready():
-
-
 	player.stats_changed.connect(_update_ui)
 	menu_ui.level_selected.connect(_handle_level_selection)
 	initial_player_position = player.position

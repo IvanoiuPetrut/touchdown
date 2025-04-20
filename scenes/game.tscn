@@ -19,7 +19,7 @@ position = Vector2(-12, -363)
 [node name="Player" parent="World2D" instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-2, -485)
+position = Vector2(87, -591)
 
 [node name="Camera2D" type="Camera2D" parent="World2D/Player"]
 position = Vector2(2, 48)

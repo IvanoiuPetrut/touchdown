@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://chrsbtyr7g8th"]
+[gd_scene load_steps=24 format=3 uid="uid://chrsbtyr7g8th"]
 
 [ext_resource type="Script" uid="uid://cbfa3knotytqh" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://1b6w8qq6nwyv" path="res://assets/sprites/player.png" id="2_g2els"]
@@ -57,6 +57,18 @@ point_count = 5
 offsets = PackedFloat32Array(0, 0.329218, 0.674897, 1)
 colors = PackedColorArray(0.941176, 0.878431, 0.380392, 1, 0.881445, 0.269514, 0.0818382, 1, 0.74643, 0.104124, 0.0893529, 1, 1, 1, 1, 1)
 
+[sub_resource type="Curve" id="Curve_f1ej7"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1.39319), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_oprun"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_a8ls1"]
+colors = PackedColorArray(1, 1, 1, 0.470588, 1, 1, 1, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(10, 13.5)
 
@@ -87,6 +99,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Trail:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.436194),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Trail2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.436194),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 length = 0.001
@@ -113,6 +149,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Trail:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Trail2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8ls1"]
@@ -180,17 +240,40 @@ scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_jej6c")
 color_ramp = SubResource("Gradient_f1ej7")
 
+[node name="Trail" type="CPUParticles2D" parent="."]
+position = Vector2(-6, -20)
+amount = 30
+lifetime = 2.0
+preprocess = 1.0
+spread = 0.0
+gravity = Vector2(0, -35)
+damping_max = 11.111
+damping_curve = SubResource("Curve_f1ej7")
+scale_amount_min = 0.1
+scale_amount_curve = SubResource("Curve_oprun")
+color_ramp = SubResource("Gradient_a8ls1")
+
+[node name="Trail2" type="CPUParticles2D" parent="."]
+position = Vector2(5, -22)
+amount = 30
+lifetime = 2.0
+spread = 0.0
+gravity = Vector2(0, -35)
+damping_max = 11.111
+damping_curve = SubResource("Curve_f1ej7")
+scale_amount_min = 0.1
+scale_amount_curve = SubResource("Curve_oprun")
+color_ramp = SubResource("Gradient_a8ls1")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -12)
 texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -7.25)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="RayCastDistanceToGround" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 target_position = Vector2(0, 47)
 
