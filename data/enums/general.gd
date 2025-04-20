@@ -1,16 +1,16 @@
 extends Node
 
 enum PlanetColorPairs {
-	BLUE_GREEN,
-	RED_ORANGE,
-	PURPLE_PINK,
+	PLANET_1,
+	PLANET_2,
+	PLANET_3,
 }
 
 # Dictionary to get the actual color values for each planet type
 const PLANET_COLORS = {
-	PlanetColorPairs.BLUE_GREEN: ["#fcb08c", "#a5b7d4"],
-	PlanetColorPairs.RED_ORANGE: ["#b2d942", "#166e7a"],
-	PlanetColorPairs.PURPLE_PINK: ["#6ceded", "#6f1d5c"],
+	PlanetColorPairs.PLANET_1: ["#fcb08c", "#a5b7d4"],
+	PlanetColorPairs.PLANET_2: ["#b2d942", "#166e7a"],
+	PlanetColorPairs.PLANET_3: ["#6ceded", "#6f1d5c"],
 }
 
 # Function to get colors for a specific planet type
