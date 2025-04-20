@@ -4,8 +4,8 @@ extends CanvasLayer
 @onready var planet_2: AnimatedTextureRect = %Planet2
 @onready var planet_3: AnimatedTextureRect = %Planet3
 
-@onready var btn_previous_planet: Button = %BtnPreviousPlanet
-@onready var btn_next_planet: Button = %BtnNextPlanet
+@onready var btn_previous_planet: Button = %ButtonPreviousPlanet
+@onready var btn_next_planet: Button = %ButtonNextPlanet
 
 @onready var panel_world_selector: PanelContainer = %PanelWorldSelector
 @onready var panel_level_selector: PanelContainer = %PanelLevelSelector
@@ -34,7 +34,7 @@ extends CanvasLayer
 @onready var world3_btn_l3: Button = $PanelLevelSelector/VBoxLevelSelector/PanelWorld3/BtnL3
 @onready var world3_btn_l4: Button = $PanelLevelSelector/VBoxLevelSelector/PanelWorld3/BtnL4
 
-@onready var btn_land: Button = %BtnLand
+@onready var btn_land: Button = %ButtonLand
 
 # Signal for level selection
 signal level_selected(world_id: int, level_id: int)
@@ -98,24 +98,6 @@ func _toggle_panel_world_selector(should_show: bool):
 		panel_world_selector.visible = true
 	else:
 		panel_world_selector.visible = false
-
-func _on_btn_previous_planet_pressed() -> void:
-	if current_planet_id > 1:
-		current_planet_id -= 1
-		_make_planets_invisible()
-		_make_planet_visible(current_planet_id)
-		_update_planet_selector_btns()
-		_update_level_buttons() # Update level buttons for new planet
-
-func _on_btn_next_planet_pressed() -> void:
-	if current_planet_id < 3 and Levels.Database["world_" + str(current_planet_id + 1)].unlocked:
-		current_planet_id += 1
-		_make_planets_invisible()
-		_make_planet_visible(current_planet_id)
-		_update_planet_selector_btns()
-		_update_level_buttons() # Update level buttons for new planet
-
-
 
 func _on_button_deploy_pressed() -> void:
 	_update_level_buttons() # Update button states in case there were changes
@@ -202,3 +184,21 @@ func _on_land_button_pressed() -> void:
 func _on_button_close_level_select_pressed() -> void:
 	_toggle_panel_world_selector(true)
 	_toggle_panel_level_selector(false)
+
+
+func _on_button_next_planet_pressed() -> void:
+	if current_planet_id < 3 and Levels.Database["world_" + str(current_planet_id + 1)].unlocked:
+		current_planet_id += 1
+		_make_planets_invisible()
+		_make_planet_visible(current_planet_id)
+		_update_planet_selector_btns()
+		_update_level_buttons() # Update level buttons for new planet
+
+
+func _on_button_previous_planet_pressed() -> void:
+	if current_planet_id > 1:
+		current_planet_id -= 1
+		_make_planets_invisible()
+		_make_planet_visible(current_planet_id)
+		_update_planet_selector_btns()
+		_update_level_buttons() # Update level buttons for new planet

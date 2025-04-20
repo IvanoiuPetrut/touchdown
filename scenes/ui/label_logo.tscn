@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cavthgbuv4ff5"]
+
+[ext_resource type="FontFile" uid="uid://eexyunjt7oau" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_huguo"]
+[ext_resource type="Script" uid="uid://rrj5a8u1t0wp" path="res://scripts/label_logo.gd" id="2_2hase"]
+
+[node name="LabelLogo" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -154.0
+offset_right = 154.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_huguo")
+theme_override_font_sizes/font_size = 32
+text = "Touch Down"
+horizontal_alignment = 1
+script = ExtResource("2_2hase")
