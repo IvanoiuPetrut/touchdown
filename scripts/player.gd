@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var thurster_sound: AudioStreamPlayer2D = $ThursterSound
 @onready var explosion_sound: AudioStreamPlayer2D = $ExplosionSound
 @onready var success_landing: AudioStreamPlayer2D = $successLanding
+@onready var thurster_particles: CPUParticles2D = $ThursterParticles
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Physics parameters
 const GRAVITY = 200.0      # Gravity force
@@ -88,15 +90,20 @@ func _physics_process(delta: float) -> void:
 			if !thurster_sound.playing:
 				thurster_sound.play()
 			
-			# TODO: Add thruster particles/effects here
+			# Enable thruster particles
+			thurster_particles.emitting = true
 		else:
-			# Stop thruster sound when not boosting
+			# Stop thruster sound when out of fuel
 			if thurster_sound.playing:
 				thurster_sound.stop()
+			# Disable thruster particles when out of fuel
+			thurster_particles.emitting = false
 	else:
 		# Stop thruster sound when not boosting
 		if thurster_sound.playing:
 			thurster_sound.stop()
+		# Disable thruster particles when not boosting
+		thurster_particles.emitting = false
 	
 	# Apply very minor dampening/drag (to simulate space physics but still have some control)
 	velocity = velocity.lerp(Vector2.ZERO, DAMPENING)
@@ -179,6 +186,9 @@ func reset_player():
 	horizontal_speed = 0.0
 	vertical_speed = 0.0
 	
+	# Ensure thruster particles are off
+	thurster_particles.emitting = false
+	
 	# Score is not reset here as it should persist across attempts
 	
 	# Notify UI
@@ -194,6 +204,9 @@ func _crash():
 	
 	# Play explosion sound
 	explosion_sound.play()
+	
+	# Start animation for explosion
+	#animation_player.play("explosion")
 	
 	# Reduce score on crash
 	score = max(0, score - 25)
