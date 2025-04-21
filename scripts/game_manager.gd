@@ -7,7 +7,7 @@ extends Node
 @onready var world: Node2D = %World2D
 @onready var game_background: Node2D = %GameBackground
 @onready var animation_scene_player: AnimationPlayer = %AnimationScenePlayer
-
+@onready var timer_finish_level: Timer = %TimerFinishLevel
 
 # Game state
 var current_level = 1
@@ -16,6 +16,7 @@ var high_score = 0
 var level_complete_timer = null
 var has_landed = false
 var initial_player_position = Vector2.ZERO
+var mission_in_progress = true
 
 func _ready():
 	player.stats_changed.connect(_update_ui)
@@ -29,11 +30,6 @@ func _ready():
 	_update_ui()
 	
 	# Create a timer for delayed actions after level completion
-	level_complete_timer = Timer.new()
-	level_complete_timer.one_shot = true
-	level_complete_timer.wait_time = 3.0 # Show success message for 3 seconds
-	level_complete_timer.timeout.connect(_on_level_complete_timer_timeout)
-	add_child(level_complete_timer)
 	
 	# Load saved progress
 	Levels.load_progress()
@@ -85,36 +81,39 @@ func _update_time_display():
 
 # Check the current game state and update UI
 func _check_game_state():
-	if player.crashed:
-		if player.mission_status == "OUT OF FUEL":
-			_handle_out_of_fuel()
-		else:
-			_handle_crash()
-	elif player.landed:
-		if not has_landed:
-			_handle_successful_landing()
+	if mission_in_progress:
+		if player.crashed:
+			mission_in_progress = false
+			if player.mission_status == "OUT OF FUEL":
+				_handle_out_of_fuel()
+			else:
+				_handle_crash()
+		elif player.landed:
+			if not has_landed:
+				mission_in_progress = false
+				_handle_successful_landing()
 
 # Handle player crash
 func _handle_crash():
 	# Show crash message via mission status
 	game_ui.show_message("CRASHED!")
-	
+	timer_finish_level.start()
 	# Wait for a moment before returning to menu
-	if not level_complete_timer.is_stopped():
-		return
-	
-	level_complete_timer.start()
+	#if not level_complete_timer.is_stopped():
+		#return
+	#
+	#level_complete_timer.start()
 
 # Handle out of fuel situation
 func _handle_out_of_fuel():
 	# Show out of fuel message via mission status
 	game_ui.show_message("OUT OF FUEL!")
-	
+	timer_finish_level.start()
 	# Wait for a moment before returning to menu
-	if not level_complete_timer.is_stopped():
-		return
-	
-	level_complete_timer.start()
+	#if not level_complete_timer.is_stopped():
+		#return
+	#
+	#level_complete_timer.start()
 
 # Handle successful landing
 func _handle_successful_landing():
@@ -124,12 +123,13 @@ func _handle_successful_landing():
 	
 	# Unlock the next level
 	_unlock_next_level()
+	timer_finish_level.start()
 	
 	# Wait for a moment before returning to menu
-	if not level_complete_timer.is_stopped():
-		return
-	
-	level_complete_timer.start()
+	#if not level_complete_timer.is_stopped():
+		#return
+	#
+	#level_complete_timer.start()
 
 func _change_level(worldNumber: int, levelNumber: int):
 #	res://scenes/levels/world_1/level_1.tscn
@@ -166,6 +166,7 @@ func _handle_level_selection_from_anim():
 	player.reset_player()
 	player.position = initial_player_position
 	has_landed = false
+	mission_in_progress = true  # Reset mission state
 	
 # Unlocks the next level or world
 func _unlock_next_level():
@@ -204,6 +205,7 @@ func _on_level_complete_timer_timeout():
 # Return to the level selection menu
 func _return_to_menu():
 	_destroy_current_level()
+	print("Returning to menu")
 	
 	# Reset game state for menu
 	world.process_mode = Node.PROCESS_MODE_DISABLED
@@ -217,3 +219,8 @@ func _return_to_menu():
 func _handle_world_change(world_id: int):
 	var color_index = world_id - 1;
 	game_background._set_gradient(color_index)
+
+
+func _on_timer_finish_level_timeout() -> void:
+	#timer_finish_level.stop()
+	_return_to_menu()
