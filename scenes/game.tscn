@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckkxv2wa177uq"]
+[gd_scene load_steps=11 format=3 uid="uid://ckkxv2wa177uq"]
 
 [ext_resource type="Script" uid="uid://cicf7o51mr7vt" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://ff3q6eymtcbm" path="res://scenes/ui/game_ui.tscn" id="1_lbhrr"]
@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
 resource_name = "initiate_change_scene"
-length = 0.25
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,32 +33,29 @@ tracks/0/path = NodePath("TextureRect:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(639, -204), Vector2(-62, -204)]
+"values": [Vector2(639, -204), Vector2(-62, -204), Vector2(-768, -204)]
 }
-
-[sub_resource type="Animation" id="Animation_u5sy4"]
-resource_name = "finish_change_scene"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-67, -204), Vector2(-789, -204)]
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_handle_level_selection_from_anim"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
 _data = {
 &"RESET": SubResource("Animation_gee14"),
-&"finish_change_scene": SubResource("Animation_u5sy4"),
 &"initiate_change_scene": SubResource("Animation_0tnpc")
 }
 

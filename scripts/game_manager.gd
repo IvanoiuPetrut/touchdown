@@ -151,8 +151,12 @@ func _destroy_current_level():
 
 func _handle_level_selection(world_id: int, level_id: int):
 	print("GameManager: ", world_id, " ", level_id)
-	_change_level(world_id, level_id)
+	current_world = world_id
+	current_level = level_id
 	animation_scene_player.play("initiate_change_scene")
+	
+func _handle_level_selection_from_anim():
+	_change_level(current_world, current_level)
 	menu_ui.visible = false
 	game_ui.visible = true  # Show game UI when starting game
 	world.process_mode = Node.PROCESS_MODE_INHERIT
@@ -162,6 +166,7 @@ func _handle_level_selection(world_id: int, level_id: int):
 	player.reset_player()
 	player.position = initial_player_position
 	has_landed = false
+	
 # Unlocks the next level or world
 func _unlock_next_level():
 	var next_level = current_level + 1
