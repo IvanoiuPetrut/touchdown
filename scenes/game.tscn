@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckkxv2wa177uq"]
+[gd_scene load_steps=14 format=3 uid="uid://ckkxv2wa177uq"]
 
 [ext_resource type="Script" uid="uid://cicf7o51mr7vt" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://ff3q6eymtcbm" path="res://scenes/ui/game_ui.tscn" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://chrsbtyr7g8th" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d1b3nc4whww66" path="res://scenes/ui/menu_ui.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cmvjs4nec4841" path="res://scenes/game_background.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dyw18aogfrvm7" path="res://scenes/ui/level_finish.tscn" id="6_gee14"]
 [ext_resource type="AudioStream" uid="uid://caoo4a0apn1so" path="res://assets/sounds/Music.ogg" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://c5uppvihllii4" path="res://assets/sprites/ui/circle.png" id="6_u5sy4"]
 
@@ -21,6 +22,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(639, -204)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%LevelFinish:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
@@ -53,10 +66,57 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "go_back_to_level_selection"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartLevelCircle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-768, -204), Vector2(-65, -204), Vector2(643, -204)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_return_to_menu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+resource_name = "show_level_stats"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%LevelFinish:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
 _data = {
 &"RESET": SubResource("Animation_gee14"),
-&"initiate_change_scene": SubResource("Animation_0tnpc")
+&"go_back_to_level_selection": SubResource("Animation_vtaks"),
+&"initiate_change_scene": SubResource("Animation_0tnpc"),
+&"show_level_stats": SubResource("Animation_kvpfn")
 }
 
 [node name="GameController" type="Node"]
@@ -84,6 +144,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="LevelFinish" parent="GUI" instance=ExtResource("6_gee14")]
+unique_name_in_owner = true
+visible = false
 
 [node name="GameUi" parent="GUI" instance=ExtResource("1_lbhrr")]
 unique_name_in_owner = true
@@ -121,7 +185,7 @@ libraries = {
 
 [node name="TimerFinishLevel" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 2.5
 one_shot = true
 
 [connection signal="timeout" from="TimerFinishLevel" to="." method="_on_timer_finish_level_timeout"]

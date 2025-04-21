@@ -8,6 +8,7 @@ extends Node
 @onready var game_background: Node2D = %GameBackground
 @onready var animation_scene_player: AnimationPlayer = %AnimationScenePlayer
 @onready var timer_finish_level: Timer = %TimerFinishLevel
+@onready var level_finish: CanvasLayer = %LevelFinish
 
 # Game state
 var current_level = 1
@@ -59,6 +60,7 @@ func _update_ui():
 		
 		# Update score
 		game_ui.update_score(player.score)
+		level_finish._change_mission_end_score(str(int(player.score)))
 		
 		# Update mission status
 		game_ui.update_mission_status(player.mission_status)
@@ -98,6 +100,9 @@ func _handle_crash():
 	# Show crash message via mission status
 	game_ui.show_message("CRASHED!")
 	timer_finish_level.start()
+	level_finish._change_mission_end_status("CRASHED")
+	animation_scene_player.play("show_level_stats")
+
 	# Wait for a moment before returning to menu
 	#if not level_complete_timer.is_stopped():
 		#return
@@ -108,7 +113,9 @@ func _handle_crash():
 func _handle_out_of_fuel():
 	# Show out of fuel message via mission status
 	game_ui.show_message("OUT OF FUEL!")
+	level_finish._change_mission_end_status("OUT OF FUEL")
 	timer_finish_level.start()
+	animation_scene_player.play("show_level_stats")
 	# Wait for a moment before returning to menu
 	#if not level_complete_timer.is_stopped():
 		#return
@@ -120,6 +127,9 @@ func _handle_successful_landing():
 	# Show success message via mission status
 	has_landed = true
 	game_ui.show_message("LANDED!")
+	level_finish._change_mission_end_status("LANDED")
+	animation_scene_player.play("show_level_stats")
+	
 	
 	# Unlock the next level
 	_unlock_next_level()
@@ -212,6 +222,7 @@ func _return_to_menu():
 	menu_ui.process_mode = Node.PROCESS_MODE_INHERIT
 	menu_ui.visible = true
 	game_ui.visible = false  # Hide game UI when returning to menu
+	level_finish.visible = false
 	
 	# Update the level buttons to reflect newly unlocked levels
 	menu_ui._update_level_buttons()
@@ -222,5 +233,5 @@ func _handle_world_change(world_id: int):
 
 
 func _on_timer_finish_level_timeout() -> void:
-	#timer_finish_level.stop()
-	_return_to_menu()
+	#Play animations from left to right, call retrun to menu and finish animation
+	animation_scene_player.play("go_back_to_level_selection")

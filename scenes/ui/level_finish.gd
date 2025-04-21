@@ -1,16 +1,10 @@
 extends CanvasLayer
 
-@onready var back_btn: Button = $Panel/VBoxContainer/ContainerFailedButtons/Back
-@onready var retry_btn: Button = $Panel/VBoxContainer/ContainerFailedButtons/Retry
-@onready var retry_btn2: Button = $Panel/VBoxContainer/ContainerSuccessuttons/Retry
-@onready var continue_btn: Button = $Panel/VBoxContainer/ContainerSuccessuttons/Continue
+@onready var mission_status: Label = $Panel/VBoxContainer/MissionStatus
+@onready var score: Label = $Panel/VBoxContainer/Score
 
-signal button_clicked(action: String)
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _change_mission_end_status(value: String):
+	mission_status.text = value
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _change_mission_end_score(value: String):
+	score.text = "Score: " + value
