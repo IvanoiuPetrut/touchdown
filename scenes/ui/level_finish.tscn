@@ -1,0 +1,178 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyw18aogfrvm7"]
+
+[ext_resource type="PackedScene" uid="uid://kny4xwx8cfx8" path="res://scenes/ui/custom_button.tscn" id="1_d7omw"]
+[ext_resource type="Script" uid="uid://ck78wc5faoley" path="res://scenes/ui/level_finish.gd" id="1_oqqxb"]
+
+[sub_resource type="Animation" id="Animation_oqqxb"]
+resource_name = "show_success"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/VBoxContainer/ContainerFailedButtons:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p847a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/VBoxContainer/ContainerFailedButtons:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p847a"]
+_data = {
+&"RESET": SubResource("Animation_p847a"),
+&"show_success": SubResource("Animation_oqqxb")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7omw"]
+
+[node name="LevelFinish" type="CanvasLayer"]
+script = ExtResource("1_oqqxb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p847a")
+}
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_d7omw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -34.0
+offset_right = 126.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MissionStatus" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Landed"
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="Score" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "SCore: 554"
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="ContainerFailedButtons" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Back" parent="Panel/VBoxContainer/ContainerFailedButtons" instance=ExtResource("1_d7omw")]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Back
+"
+
+[node name="Retry" parent="Panel/VBoxContainer/ContainerFailedButtons" instance=ExtResource("1_d7omw")]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Retry"
+
+[node name="ContainerSuccessuttons" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Retry" parent="Panel/VBoxContainer/ContainerSuccessuttons" instance=ExtResource("1_d7omw")]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Retry"
+
+[node name="Continue" parent="Panel/VBoxContainer/ContainerSuccessuttons" instance=ExtResource("1_d7omw")]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Continue
+"

@@ -13,7 +13,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
+tracks/0/path = NodePath("StartLevelCircle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +29,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
+tracks/0/path = NodePath("StartLevelCircle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -91,9 +91,9 @@ unique_name_in_owner = true
 [node name="MenuUi" parent="GUI" instance=ExtResource("3_p57ef")]
 unique_name_in_owner = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="GUI"]
+[node name="Scene Transitions" type="CanvasLayer" parent="GUI"]
 
-[node name="TextureRect" type="TextureRect" parent="GUI/CanvasLayer"]
+[node name="StartLevelCircle" type="TextureRect" parent="GUI/Scene Transitions"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -107,13 +107,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_u5sy4")
 
-[node name="AnimationScenePlayer" type="AnimationPlayer" parent="GUI/CanvasLayer"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_vtaks")
-}
-
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_p57ef")
 autoplay = true
 bus = &"Music"
+
+[node name="AnimationScenePlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../GUI/Scene Transitions")
+libraries = {
+&"": SubResource("AnimationLibrary_vtaks")
+}
