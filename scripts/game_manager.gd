@@ -6,6 +6,7 @@ extends Node
 @onready var menu_ui: CanvasLayer = %MenuUi
 @onready var world: Node2D = %World2D
 @onready var game_background: Node2D = %GameBackground
+@onready var animation_scene_player: AnimationPlayer = %AnimationScenePlayer
 
 
 # Game state
@@ -151,6 +152,7 @@ func _destroy_current_level():
 func _handle_level_selection(world_id: int, level_id: int):
 	print("GameManager: ", world_id, " ", level_id)
 	_change_level(world_id, level_id)
+	animation_scene_player.play("initiate_change_scene")
 	menu_ui.visible = false
 	game_ui.visible = true  # Show game UI when starting game
 	world.process_mode = Node.PROCESS_MODE_INHERIT

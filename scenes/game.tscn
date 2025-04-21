@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckkxv2wa177uq"]
+[gd_scene load_steps=12 format=3 uid="uid://ckkxv2wa177uq"]
 
 [ext_resource type="Script" uid="uid://cicf7o51mr7vt" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://ff3q6eymtcbm" path="res://scenes/ui/game_ui.tscn" id="1_lbhrr"]
@@ -6,6 +6,61 @@
 [ext_resource type="PackedScene" uid="uid://d1b3nc4whww66" path="res://scenes/ui/menu_ui.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cmvjs4nec4841" path="res://scenes/game_background.tscn" id="5_iywne"]
 [ext_resource type="AudioStream" uid="uid://caoo4a0apn1so" path="res://assets/sounds/Music.ogg" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://c5uppvihllii4" path="res://assets/sprites/ui/circle.png" id="6_u5sy4"]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(639, -204)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "initiate_change_scene"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(639, -204), Vector2(-62, -204)]
+}
+
+[sub_resource type="Animation" id="Animation_u5sy4"]
+resource_name = "finish_change_scene"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-67, -204), Vector2(-789, -204)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"finish_change_scene": SubResource("Animation_u5sy4"),
+&"initiate_change_scene": SubResource("Animation_0tnpc")
+}
 
 [node name="GameController" type="Node"]
 script = ExtResource("1_iywne")
@@ -38,6 +93,28 @@ unique_name_in_owner = true
 
 [node name="MenuUi" parent="GUI" instance=ExtResource("3_p57ef")]
 unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GUI"]
+
+[node name="TextureRect" type="TextureRect" parent="GUI/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 319.0
+offset_top = -384.0
+offset_right = 1087.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_u5sy4")
+
+[node name="AnimationScenePlayer" type="AnimationPlayer" parent="GUI/CanvasLayer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_vtaks")
+}
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_p57ef")

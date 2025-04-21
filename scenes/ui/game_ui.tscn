@@ -65,7 +65,6 @@ offset_bottom = 40.0
 texture = SubResource("AtlasTexture_bxde6")
 script = ExtResource("3_ru5ln")
 sprites = SubResource("SpriteFrames_opxtl")
-frame_index = 5
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
