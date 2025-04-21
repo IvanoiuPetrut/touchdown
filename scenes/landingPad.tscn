@@ -1,6 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dakk67ugp7naq"]
+[gd_scene load_steps=18 format=3 uid="uid://dakk67ugp7naq"]
 
 [ext_resource type="Texture2D" uid="uid://dw2pw8j0h6wmk" path="res://assets/sprites/landing_pad-Sheet.png" id="1_6rjwa"]
+[ext_resource type="Script" uid="uid://csxmu1v7yagiw" path="res://scripts/landing_pad.gd" id="1_rrnsp"]
+[ext_resource type="Texture2D" uid="uid://d0oomcfsyrsvl" path="res://assets/sprites/ui/arrow.png" id="3_rrnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssxai"]
 size = Vector2(31, 6)
@@ -98,28 +100,17 @@ animations = [{
 }]
 
 [node name="LandingPad" type="StaticBody2D"]
+script = ExtResource("1_rrnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -3)
 shape = SubResource("RectangleShape2D_ssxai")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = -64.0
-offset_top = -14.0
-offset_right = 64.0
-offset_bottom = 14.0
-color = Color(0.372549, 0.462745, 0.498039, 1)
-
-[node name="LandingPad" type="ColorRect" parent="."]
-visible = false
-offset_left = -63.0
-offset_top = -19.0
-offset_right = 61.0
-offset_bottom = -14.0
-color = Color(0.870588, 0.486275, 0.113725, 1)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_jbmoo")
 autoplay = "default"
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(39, 23)
+texture = ExtResource("3_rrnsp")
