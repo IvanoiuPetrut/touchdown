@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://djd4ww70tsmf1" path="res://assets/fonts/PixelOperator8.ttf" id="1_tgk0f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8j7d"]
-bg_color = Color(0.666569, 0.666569, 0.666569, 1)
 border_width_bottom = 4
 border_color = Color(0.442911, 0.442911, 0.44291, 1)
 corner_radius_top_left = 5
@@ -17,9 +16,9 @@ expand_margin_right = 6.0
 expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty2no"]
-bg_color = Color(0.912289, 0.912289, 0.912289, 1)
+bg_color = Color(0.913725, 0.913725, 0.913725, 0)
 border_width_bottom = 4
-border_color = Color(0.796243, 0.796243, 0.796243, 1)
+border_color = Color(0.796078, 0.796078, 0.796078, 0)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -30,7 +29,7 @@ expand_margin_right = 6.0
 expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1n0q"]
-bg_color = Color(0.912289, 0.912289, 0.912289, 1)
+bg_color = Color(0.913725, 0.913725, 0.913725, 0)
 border_width_bottom = 4
 border_color = Color(0.796243, 0.796243, 0.796243, 1)
 corner_radius_top_left = 5

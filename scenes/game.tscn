@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckkxv2wa177uq"]
+[gd_scene load_steps=24 format=3 uid="uid://ckkxv2wa177uq"]
 
 [ext_resource type="Script" uid="uid://cicf7o51mr7vt" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://ff3q6eymtcbm" path="res://scenes/ui/game_ui.tscn" id="1_lbhrr"]
@@ -8,6 +8,59 @@
 [ext_resource type="PackedScene" uid="uid://dyw18aogfrvm7" path="res://scenes/ui/level_finish.tscn" id="6_gee14"]
 [ext_resource type="AudioStream" uid="uid://caoo4a0apn1so" path="res://assets/sounds/Music.ogg" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://c5uppvihllii4" path="res://assets/sprites/ui/circle.png" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://bud7yifoh5nly" path="res://assets/sprites/sky_one_layer.png" id="9_dinhu"]
+[ext_resource type="Script" uid="uid://dnra5sqwfaxhr" path="res://scripts/planet_texture_animated.gd" id="9_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://xmo01bp7xhml" path="res://assets/sprites/sky_background3.png" id="10_kvpfn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
+atlas = ExtResource("9_dinhu")
+region = Rect2(2220, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf5lx"]
+atlas = ExtResource("9_dinhu")
+region = Rect2(0, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03d0g"]
+atlas = ExtResource("9_dinhu")
+region = Rect2(740, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01m71"]
+atlas = ExtResource("9_dinhu")
+region = Rect2(1480, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
+atlas = ExtResource("9_dinhu")
+region = Rect2(2960, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
+atlas = ExtResource("9_dinhu")
+region = Rect2(3700, 0, 740, 460)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvuet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf5lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03d0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01m71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kid13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kybdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_risoy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.5
@@ -34,36 +87,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_0tnpc"]
-resource_name = "initiate_change_scene"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StartLevelCircle:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(639, -204), Vector2(-62, -204), Vector2(-768, -204)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.266667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_handle_level_selection_from_anim"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_vtaks"]
@@ -93,6 +116,36 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"_return_to_menu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "initiate_change_scene"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartLevelCircle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(639, -204), Vector2(-62, -204), Vector2(-768, -204)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_handle_level_selection_from_anim"
 }]
 }
 
@@ -158,6 +211,8 @@ unique_name_in_owner = true
 [node name="Scene Transitions" type="CanvasLayer" parent="GUI"]
 
 [node name="StartLevelCircle" type="TextureRect" parent="GUI/Scene Transitions"]
+self_modulate = Color(0, 0.435069, 0.435965, 1)
+clip_children = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -170,6 +225,28 @@ offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_u5sy4")
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Scene Transitions/StartLevelCircle"]
+self_modulate = Color(0.25098, 1, 1, 1)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 150.0
+offset_right = 785.0
+offset_bottom = 640.0
+texture = ExtResource("10_kvpfn")
+
+[node name="MainMenuBackgroundAnimated" type="TextureRect" parent="GUI/Scene Transitions/StartLevelCircle"]
+offset_left = 23.0
+offset_top = 197.0
+offset_right = 763.0
+offset_bottom = 657.0
+texture = SubResource("AtlasTexture_kid13")
+script = ExtResource("9_kvpfn")
+sprites = SubResource("SpriteFrames_kvuet")
+frame_index = 3
+auto_play = true
+playing = true
+metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_p57ef")
