@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://kny4xwx8cfx8"]
+[gd_scene load_steps=4 format=3 uid="uid://kny4xwx8cfx8"]
 
+[ext_resource type="Theme" uid="uid://ba56exq7uug14" path="res://assets/new_theme.tres" id="1_njdmp"]
 [ext_resource type="Script" uid="uid://b2qc2heclkqsa" path="res://scripts/custom_button.gd" id="1_nr4dm"]
 [ext_resource type="AudioStream" uid="uid://t7571vvtvvwf" path="res://assets/sounds/click.ogg" id="2_dx6r0"]
 
@@ -17,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_njdmp")
 text = "Button"
 script = ExtResource("1_nr4dm")
 
