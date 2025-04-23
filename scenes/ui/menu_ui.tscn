@@ -1,4 +1,4 @@
-[gd_scene load_steps=179 format=3 uid="uid://d1b3nc4whww66"]
+[gd_scene load_steps=181 format=3 uid="uid://d1b3nc4whww66"]
 
 [ext_resource type="Script" uid="uid://dnra5sqwfaxhr" path="res://scripts/planet_texture_animated.gd" id="1_b5e6c"]
 [ext_resource type="Script" uid="uid://t01dgxvtcbkt" path="res://scripts/menu_ui.gd" id="1_ld3xo"]
@@ -16,9 +16,9 @@ shader = ExtResource("2_qn5cm")
 shader_parameter/first_color = Color(0.202538, 0.888111, 0.753163, 1)
 shader_parameter/second_color = Color(0.921325, 0, 0.348812, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_01m71"]
 atlas = ExtResource("2_m2dew")
-region = Rect2(3700, 0, 740, 460)
+region = Rect2(1480, 0, 740, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf5lx"]
 atlas = ExtResource("2_m2dew")
@@ -28,10 +28,6 @@ region = Rect2(0, 0, 740, 460)
 atlas = ExtResource("2_m2dew")
 region = Rect2(740, 0, 740, 460)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_01m71"]
-atlas = ExtResource("2_m2dew")
-region = Rect2(1480, 0, 740, 460)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
 atlas = ExtResource("2_m2dew")
 region = Rect2(2220, 0, 740, 460)
@@ -39,6 +35,10 @@ region = Rect2(2220, 0, 740, 460)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
 atlas = ExtResource("2_m2dew")
 region = Rect2(2960, 0, 740, 460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
+atlas = ExtResource("2_m2dew")
+region = Rect2(3700, 0, 740, 460)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rn2cm"]
 animations = [{
@@ -68,9 +68,9 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kj6ed"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnulq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur154"]
 atlas = ExtResource("2_tner2")
-region = Rect2(3936, 0, 96, 96)
+region = Rect2(3072, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -200,10 +200,6 @@ region = Rect2(2880, 0, 96, 96)
 atlas = ExtResource("2_tner2")
 region = Rect2(2976, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ur154"]
-atlas = ExtResource("2_tner2")
-region = Rect2(3072, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo43o"]
 atlas = ExtResource("2_tner2")
 region = Rect2(3168, 0, 96, 96)
@@ -235,6 +231,10 @@ region = Rect2(3744, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sp14r"]
 atlas = ExtResource("2_tner2")
 region = Rect2(3840, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnulq"]
+atlas = ExtResource("2_tner2")
+region = Rect2(3936, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujtr8"]
 atlas = ExtResource("2_tner2")
@@ -426,9 +426,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g765f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_73fxr"]
 atlas = ExtResource("1_tner2")
-region = Rect2(2304, 0, 96, 96)
+region = Rect2(3072, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
@@ -526,6 +526,10 @@ region = Rect2(2112, 0, 96, 96)
 atlas = ExtResource("1_tner2")
 region = Rect2(2208, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_g765f"]
+atlas = ExtResource("1_tner2")
+region = Rect2(2304, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_buf4k"]
 atlas = ExtResource("1_tner2")
 region = Rect2(2400, 0, 96, 96)
@@ -553,10 +557,6 @@ region = Rect2(2880, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0fju"]
 atlas = ExtResource("1_tner2")
 region = Rect2(2976, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_73fxr"]
-atlas = ExtResource("1_tner2")
-region = Rect2(3072, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omwhv"]
 atlas = ExtResource("1_tner2")
@@ -784,9 +784,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3aq1v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g432k"]
 atlas = ExtResource("4_3y6qt")
-region = Rect2(2304, 0, 96, 96)
+region = Rect2(3072, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
@@ -884,6 +884,10 @@ region = Rect2(2112, 0, 96, 96)
 atlas = ExtResource("4_3y6qt")
 region = Rect2(2208, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3aq1v"]
+atlas = ExtResource("4_3y6qt")
+region = Rect2(2304, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kcea"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(2400, 0, 96, 96)
@@ -911,10 +915,6 @@ region = Rect2(2880, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_020lg"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(2976, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g432k"]
-atlas = ExtResource("4_3y6qt")
-region = Rect2(3072, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvtpo"]
 atlas = ExtResource("4_3y6qt")
@@ -1150,15 +1150,23 @@ animations = [{
 _data = [Vector2(0.114662, 0.88223), 0.0, 0.0, 0, 0, Vector2(0.25188, 0.297909), 0.0, 0.0, 0, 0, Vector2(0.343985, 0.673868), 0.0, 0.0, 0, 0, Vector2(0.565789, 0.891289), 0.0, 0.0, 0, 0, Vector2(0.659774, 0.234495), 0.0, 0.0, 0, 0, Vector2(0.765038, 1), 0.0, 0.0, 0, 0, Vector2(0.913534, 0.479094), 0.0, 0.0, 0, 0]
 point_count = 7
 
-[sub_resource type="Gradient" id="Gradient_jcchn"]
-offsets = PackedFloat32Array(0, 0.298039, 0.588235, 0.796078, 1)
-colors = PackedColorArray(0.423529, 0.929412, 0.929412, 1, 0.427451, 0.521569, 0.647059, 1, 0.431373, 0.317647, 0.505882, 1, 0.309804, 0.0784314, 0.27451, 1, 0.180392, 0.0392157, 0.188235, 1)
+[sub_resource type="Gradient" id="Gradient_qn5cm"]
+offsets = PackedFloat32Array(0, 0.304527, 0.588235, 0.806584, 1)
+colors = PackedColorArray(0.988235, 0.690196, 0.54902, 1, 0.937255, 0.615686, 0.498039, 1, 0.705882, 0.552941, 0.572549, 1, 0.560784, 0.627451, 0.74902, 1, 0.647059, 0.717647, 0.831373, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2dew"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="Gradient" id="Gradient_5he78"]
+offsets = PackedFloat32Array(0, 0.301961, 0.568627, 0.788235, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.988235, 0.964706, 0.376471, 1, 0.321569, 0.764706, 0.247059, 1, 0.145098, 0.301961, 0.439216, 1, 0.12549, 0.0823529, 0.2, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4f11"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Gradient" id="Gradient_jcchn"]
+offsets = PackedFloat32Array(0, 0.298039, 0.588235, 0.796078, 1)
+colors = PackedColorArray(0.423529, 0.929412, 0.929412, 1, 0.427451, 0.521569, 0.647059, 1, 0.431373, 0.317647, 0.505882, 1, 0.309804, 0.0784314, 0.27451, 1, 0.180392, 0.0392157, 0.188235, 1)
 
 [node name="MenuUi" type="CanvasLayer"]
 script = ExtResource("1_ld3xo")
@@ -1176,10 +1184,10 @@ offset_left = -50.0
 offset_top = -50.0
 offset_right = 690.0
 offset_bottom = 410.0
-texture = SubResource("AtlasTexture_risoy")
+texture = SubResource("AtlasTexture_01m71")
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_rn2cm")
-frame_index = 5
+frame_index = 2
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
@@ -1224,11 +1232,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_fnulq")
+texture = SubResource("AtlasTexture_ur154")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 41
+frame_index = 32
 auto_play = true
 playing = true
 
@@ -1236,11 +1244,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_g765f")
+texture = SubResource("AtlasTexture_73fxr")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
-frame_index = 24
+frame_index = 32
 auto_play = true
 playing = true
 
@@ -1248,11 +1256,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_3aq1v")
+texture = SubResource("AtlasTexture_g432k")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
-frame_index = 24
+frame_index = 32
 auto_play = true
 playing = true
 
@@ -1312,7 +1320,7 @@ points = PackedVector2Array(181, 42, 314, 69, 384, 98, 237, 152, 203, 202, 356, 
 width = 5.0
 width_curve = SubResource("Curve_jcchn")
 default_color = Color(0.843184, 0.843184, 0.843184, 1)
-gradient = SubResource("Gradient_jcchn")
+gradient = SubResource("Gradient_qn5cm")
 texture_mode = 2
 joint_mode = 2
 begin_cap_mode = 2
@@ -1372,7 +1380,6 @@ text = "4"
 
 [node name="PanelWorld2" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_m2dew")
@@ -1383,7 +1390,7 @@ points = PackedVector2Array(181, 94, 284, 45, 380, 51, 280, 136, 305, 203, 378, 
 width = 5.0
 width_curve = SubResource("Curve_jcchn")
 default_color = Color(0.843184, 0.843184, 0.843184, 1)
-gradient = SubResource("Gradient_jcchn")
+gradient = SubResource("Gradient_5he78")
 texture_mode = 2
 joint_mode = 2
 begin_cap_mode = 2
@@ -1447,6 +1454,7 @@ text = "4"
 
 [node name="PanelWorld3" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_a4f11")
