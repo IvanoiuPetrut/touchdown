@@ -16,9 +16,9 @@ shader = ExtResource("2_qn5cm")
 shader_parameter/first_color = Color(0.202538, 0.888111, 0.753163, 1)
 shader_parameter/second_color = Color(0.921325, 0, 0.348812, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
 atlas = ExtResource("2_m2dew")
-region = Rect2(2960, 0, 740, 460)
+region = Rect2(3700, 0, 740, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf5lx"]
 atlas = ExtResource("2_m2dew")
@@ -36,9 +36,9 @@ region = Rect2(1480, 0, 740, 460)
 atlas = ExtResource("2_m2dew")
 region = Rect2(2220, 0, 740, 460)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
 atlas = ExtResource("2_m2dew")
-region = Rect2(3700, 0, 740, 460)
+region = Rect2(2960, 0, 740, 460)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rn2cm"]
 animations = [{
@@ -68,9 +68,9 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kj6ed"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lp0ye"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnulq"]
 atlas = ExtResource("2_tner2")
-region = Rect2(4416, 0, 96, 96)
+region = Rect2(3936, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -236,10 +236,6 @@ region = Rect2(3744, 0, 96, 96)
 atlas = ExtResource("2_tner2")
 region = Rect2(3840, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnulq"]
-atlas = ExtResource("2_tner2")
-region = Rect2(3936, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujtr8"]
 atlas = ExtResource("2_tner2")
 region = Rect2(4032, 0, 96, 96)
@@ -255,6 +251,10 @@ region = Rect2(4224, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3hqwf"]
 atlas = ExtResource("2_tner2")
 region = Rect2(4320, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp0ye"]
+atlas = ExtResource("2_tner2")
+region = Rect2(4416, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we5rj"]
 atlas = ExtResource("2_tner2")
@@ -426,9 +426,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gsiph"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g765f"]
 atlas = ExtResource("1_tner2")
-region = Rect2(2208, 0, 96, 96)
+region = Rect2(2304, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
@@ -522,9 +522,9 @@ region = Rect2(2016, 0, 96, 96)
 atlas = ExtResource("1_tner2")
 region = Rect2(2112, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g765f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsiph"]
 atlas = ExtResource("1_tner2")
-region = Rect2(2304, 0, 96, 96)
+region = Rect2(2208, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_buf4k"]
 atlas = ExtResource("1_tner2")
@@ -784,9 +784,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lje4x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3aq1v"]
 atlas = ExtResource("4_3y6qt")
-region = Rect2(2208, 0, 96, 96)
+region = Rect2(2304, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
@@ -880,9 +880,9 @@ region = Rect2(2016, 0, 96, 96)
 atlas = ExtResource("4_3y6qt")
 region = Rect2(2112, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3aq1v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lje4x"]
 atlas = ExtResource("4_3y6qt")
-region = Rect2(2304, 0, 96, 96)
+region = Rect2(2208, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7kcea"]
 atlas = ExtResource("4_3y6qt")
@@ -1151,8 +1151,8 @@ _data = [Vector2(0.114662, 0.88223), 0.0, 0.0, 0, 0, Vector2(0.25188, 0.297909),
 point_count = 7
 
 [sub_resource type="Gradient" id="Gradient_jcchn"]
-offsets = PackedFloat32Array(0, 0.297571, 0.560729, 0.793522, 1)
-colors = PackedColorArray(0.937255, 0.615686, 0.498039, 1, 0.839216, 0.576471, 0.541176, 1, 0.647059, 0.592157, 0.631373, 1, 0.560784, 0.627451, 0.74902, 1, 0.647059, 0.717647, 0.831373, 1)
+offsets = PackedFloat32Array(0, 0.298039, 0.588235, 0.796078, 1)
+colors = PackedColorArray(0.423529, 0.929412, 0.929412, 1, 0.427451, 0.521569, 0.647059, 1, 0.431373, 0.317647, 0.505882, 1, 0.309804, 0.0784314, 0.27451, 1, 0.180392, 0.0392157, 0.188235, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2dew"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -1176,10 +1176,10 @@ offset_left = -50.0
 offset_top = -50.0
 offset_right = 690.0
 offset_bottom = 410.0
-texture = SubResource("AtlasTexture_kybdo")
+texture = SubResource("AtlasTexture_risoy")
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_rn2cm")
-frame_index = 4
+frame_index = 5
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
@@ -1224,11 +1224,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_lp0ye")
+texture = SubResource("AtlasTexture_fnulq")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 46
+frame_index = 41
 auto_play = true
 playing = true
 
@@ -1236,11 +1236,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_gsiph")
+texture = SubResource("AtlasTexture_g765f")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
-frame_index = 23
+frame_index = 24
 auto_play = true
 playing = true
 
@@ -1248,11 +1248,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_lje4x")
+texture = SubResource("AtlasTexture_3aq1v")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
-frame_index = 23
+frame_index = 24
 auto_play = true
 playing = true
 
@@ -1301,6 +1301,7 @@ layout_mode = 2
 
 [node name="PanelWorld1" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5he78")
@@ -1378,90 +1379,145 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m2dew")
 
 [node name="Line2D" type="Line2D" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2"]
 position = Vector2(1, -27)
-points = PackedVector2Array(360, 53, 360, 103, 451, 141, 221, 150, 158, 231, 237, 300, 349, 287)
+points = PackedVector2Array(181, 94, 284, 45, 380, 51, 280, 136, 305, 203, 378, 200, 448, 170)
 width = 5.0
+width_curve = SubResource("Curve_jcchn")
+default_color = Color(0.843184, 0.843184, 0.843184, 1)
+gradient = SubResource("Gradient_jcchn")
+texture_mode = 2
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="BtnL1" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2"]
-layout_mode = 0
-offset_left = 342.0
-offset_top = 12.0
-offset_right = 368.0
-offset_bottom = 43.0
-text = "L1"
+[node name="BtnL1" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 172.0
+offset_top = 58.0
+offset_right = 193.0
+offset_bottom = 78.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "1"
 
-[node name="BtnL2" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2"]
-layout_mode = 0
-offset_left = 439.0
-offset_top = 96.0
-offset_right = 465.0
-offset_bottom = 127.0
-text = "L2"
+[node name="BtnL2" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 367.0
+offset_top = 10.0
+offset_right = 388.0
+offset_bottom = 30.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "2"
 
-[node name="BtnL3" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2"]
-layout_mode = 0
-offset_left = 158.0
-offset_top = 187.0
-offset_right = 184.0
-offset_bottom = 218.0
-text = "L3"
+[node name="BtnL3" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 296.0
+offset_top = 165.0
+offset_right = 317.0
+offset_bottom = 185.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "3"
 
-[node name="BtnL4" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2"]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 245.0
-offset_right = 362.0
-offset_bottom = 276.0
-text = "L4"
+[node name="BtnL4" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld2" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 438.0
+offset_top = 131.0
+offset_right = 459.0
+offset_bottom = 151.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "4"
 
 [node name="PanelWorld3" type="Panel" parent="PanelLevelSelector/VBoxLevelSelector"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_a4f11")
 
 [node name="Line2D" type="Line2D" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3"]
 position = Vector2(1, -27)
-points = PackedVector2Array(188, 159, 246, 79, 351, 60, 298, 199, 324, 267, 423, 255, 472, 128)
+points = PackedVector2Array(176, 158, 223, 68, 296, 33, 287, 136, 320, 212, 389, 191, 420, 117)
 width = 5.0
+width_curve = SubResource("Curve_jcchn")
+default_color = Color(0.843184, 0.843184, 0.843184, 1)
+gradient = SubResource("Gradient_jcchn")
+texture_mode = 2
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="BtnL1" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3"]
-layout_mode = 0
-offset_left = 173.0
-offset_top = 117.0
-offset_right = 199.0
-offset_bottom = 148.0
-text = "L1"
+[node name="BtnL1" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 169.0
+offset_top = 121.0
+offset_right = 190.0
+offset_bottom = 141.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "1"
 
-[node name="BtnL2" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3"]
-layout_mode = 0
-offset_left = 336.0
-offset_top = 18.0
-offset_right = 362.0
-offset_bottom = 49.0
-text = "L2"
+[node name="BtnL2" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 311.0
+offset_top = 168.0
+offset_right = 332.0
+offset_bottom = 188.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "2"
 
-[node name="BtnL3" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3"]
-layout_mode = 0
-offset_left = 312.0
-offset_top = 223.0
-offset_right = 338.0
-offset_bottom = 254.0
-text = "L3"
+[node name="BtnL3" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 407.0
+offset_top = 76.0
+offset_right = 428.0
+offset_bottom = 96.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "3"
 
-[node name="BtnL4" type="Button" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3"]
-layout_mode = 0
-offset_left = 459.0
-offset_top = 87.0
-offset_right = 485.0
-offset_bottom = 118.0
-text = "L4"
+[node name="BtnL4" parent="PanelLevelSelector/VBoxLevelSelector/PanelWorld3" instance=ExtResource("9_jcchn")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 279.0
+offset_top = 1.0
+offset_right = 300.0
+offset_bottom = 21.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "4"
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelLevelSelector/VBoxLevelSelector"]
 layout_mode = 2
