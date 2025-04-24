@@ -12,9 +12,9 @@
 [ext_resource type="Script" uid="uid://dnra5sqwfaxhr" path="res://scripts/planet_texture_animated.gd" id="9_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://xmo01bp7xhml" path="res://assets/sprites/sky_background3.png" id="10_kvpfn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
 atlas = ExtResource("9_dinhu")
-region = Rect2(2960, 0, 740, 460)
+region = Rect2(2220, 0, 740, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf5lx"]
 atlas = ExtResource("9_dinhu")
@@ -28,9 +28,9 @@ region = Rect2(740, 0, 740, 460)
 atlas = ExtResource("9_dinhu")
 region = Rect2(1480, 0, 740, 460)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
 atlas = ExtResource("9_dinhu")
-region = Rect2(2220, 0, 740, 460)
+region = Rect2(2960, 0, 740, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_risoy"]
 atlas = ExtResource("9_dinhu")
@@ -241,10 +241,10 @@ offset_left = 23.0
 offset_top = 197.0
 offset_right = 763.0
 offset_bottom = 657.0
-texture = SubResource("AtlasTexture_kybdo")
+texture = SubResource("AtlasTexture_kid13")
 script = ExtResource("9_kvpfn")
 sprites = SubResource("SpriteFrames_kvuet")
-frame_index = 4
+frame_index = 3
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
