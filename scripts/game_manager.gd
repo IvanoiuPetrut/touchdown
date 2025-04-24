@@ -172,8 +172,22 @@ func _handle_level_selection_from_anim():
 	world.process_mode = Node.PROCESS_MODE_INHERIT
 	menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	# Get the fuel value for this level with error handling
+	var level_fuel = 100.0  # Default value if not found
+	var world_key = "world_" + str(current_world)
+	
+	# Check if the world key exists
+	if Levels.Database.has(world_key):
+		var levels = Levels.Database[world_key].levels
+		# Check if the level index is valid
+		if current_level >= 1 and current_level <= levels.size():
+			var level_data = levels[current_level - 1]
+			# Check if the level has a fuel property
+			if level_data.has("fuel"):
+				level_fuel = level_data.fuel
+	
 	# Reset player when starting a new level
-	player.reset_player()
+	player.reset_player(level_fuel)
 	player.position = initial_player_position
 	has_landed = false
 	mission_in_progress = true  # Reset mission state

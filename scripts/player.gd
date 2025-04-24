@@ -22,7 +22,7 @@ const MAX_SAFE_LANDING_VELOCITY = 100.0  # Maximum velocity for safe landing
 const MAX_LANDING_ANGLE = 0.3  # Maximum angle (in radians) for safe landing (about 17 degrees)
 
 # Game variables - for UI display and game mechanics
-var fuel = 100.0           # Starting fuel amount
+var fuel = 100.0           # Default starting fuel amount (will be overridden by level data)
 var score = 0              # Player score
 var mission_time = 0.0     # Time elapsed in current mission
 var altitude = 0.0         # Current altitude from surface
@@ -192,14 +192,14 @@ func is_landing_safe() -> bool:
 	return speed_ok && angle_ok
 
 # Reset the player for a new attempt
-func reset_player():
+func reset_player(level_fuel = 100.0):
 	landed = false
 	crashed = false
 	velocity = Vector2.ZERO
 	rotation = 0
 	
 	# Reset game variables
-	fuel = 100.0
+	fuel = level_fuel
 	mission_time = 0.0
 	mission_status = "IN PROGRESS"
 	altitude = 0.0

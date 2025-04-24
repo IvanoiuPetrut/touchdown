@@ -10,21 +10,25 @@ static var Database = {
 				"name" : "Level 1",
 				"id" : 1,
 				"unlocked" : true,
+				"fuel" : 80.0,
 			},
 			{
 				"name" : "Level 2",
 				"id" : 2,
 				"unlocked" : false,
+				"fuel" : 80.0,
 			},
 			{
 				"name" : "Level 3",
 				"id" : 3,
 				"unlocked" : false,
+				"fuel" : 80.0,
 			},
 			{
 				"name" : "Level 4",
 				"id" : 4,
 				"unlocked" : false,
+				"fuel" : 135.0,
 			},
 		]
 	},
@@ -37,21 +41,25 @@ static var Database = {
 				"name" : "Level 1",
 				"id" : 1,
 				"unlocked" : false,
+				"fuel" : 75.0,
 			},
 			{
 				"name" : "Level 2",
 				"id" : 2,
 				"unlocked" : false,
+				"fuel" : 65.0,
 			},
 			{
 				"name" : "Level 3",
 				"id" : 3,
 				"unlocked" : false,
+				"fuel" : 55.0,
 			},
 			{
 				"name" : "Level 4",
 				"id" : 4,
 				"unlocked" : false,
+				"fuel" : 50.0,
 			},
 		]
 	},
@@ -64,21 +72,25 @@ static var Database = {
 				"name" : "Level 1",
 				"id" : 1,
 				"unlocked" : false,
+				"fuel" : 60.0,
 			},
 			{
 				"name" : "Level 2",
 				"id" : 2,
 				"unlocked" : false,
+				"fuel" : 50.0,
 			},
 			{
 				"name" : "Level 3",
 				"id" : 3,
 				"unlocked" : false,
+				"fuel" : 45.0,
 			},
 			{
 				"name" : "Level 4",
 				"id" : 4,
 				"unlocked" : false,
+				"fuel" : 40.0,
 			},
 		]
 	}

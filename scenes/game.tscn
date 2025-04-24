@@ -180,7 +180,7 @@ unique_name_in_owner = true
 
 [node name="GameBackground" parent="World2D" instance=ExtResource("5_iywne")]
 unique_name_in_owner = true
-position = Vector2(-12, -363)
+position = Vector2(-246, -794)
 
 [node name="Player" parent="World2D" instance=ExtResource("1_uwrxv")]
 unique_name_in_owner = true
@@ -236,6 +236,7 @@ offset_bottom = 640.0
 texture = ExtResource("10_kvpfn")
 
 [node name="MainMenuBackgroundAnimated" type="TextureRect" parent="GUI/Scene Transitions/StartLevelCircle"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 197.0
 offset_right = 763.0
