@@ -619,11 +619,8 @@ tile_set = SubResource("TileSet_u6ut8")
 [node name="LandingPad" parent="." instance=ExtResource("3_4h1ok")]
 position = Vector2(1, 51)
 
-[node name="PullingStar" parent="." instance=ExtResource("4_7cmfa")]
-position = Vector2(7, -102)
-
 [node name="PullingStar2" parent="." instance=ExtResource("4_7cmfa")]
-position = Vector2(-785, -255)
+position = Vector2(28, -418)
 
 [node name="PullingStar3" parent="." instance=ExtResource("4_7cmfa")]
-position = Vector2(-183, -331)
+position = Vector2(-186, -243)

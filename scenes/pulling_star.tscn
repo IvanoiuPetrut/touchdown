@@ -380,7 +380,7 @@ frame_progress = 0.053239
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttractZone"]
 shape = SubResource("CircleShape2D_mk444")
 
-[node name="KillZone" type="Area2D" parent="."]
+[node name="KillZone" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 shape = SubResource("CircleShape2D_6xvvx")

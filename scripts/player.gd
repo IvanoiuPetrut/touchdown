@@ -178,6 +178,15 @@ func _handle_collision(collision):
 			_land_successfully()
 		else:
 			_crash()
+	# Check for pulling star collision
+	elif collider.get_parent().name == "PullingStar" or collider.name == "PullingStar":
+		# Collision with a pulling star, always crash
+		_crash()
+		
+		# Notify game manager about the crash
+		var game_manager = get_node_or_null("/root/GameController")
+		if game_manager and game_manager.has_method("_handle_crash"):
+			game_manager._handle_crash()
 	else:
 		# Any other collision results in a crash
 		_crash()

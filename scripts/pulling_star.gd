@@ -1,7 +1,7 @@
 extends Node2D
 @onready var area_2d: Area2D = $Area2D
 @onready var attract_zone: Area2D = $AttractZone
-@onready var kill_zone: Area2D = $KillZone
+@onready var kill_zone: StaticBody2D = $KillZone
 
 # Pull force applied to player
 @export_range(100.0, 1000.0, 10.0) var pull_strength = 300.0
@@ -12,7 +12,6 @@ func _ready() -> void:
 	# Connect signals for both zones
 	attract_zone.body_entered.connect(_on_attract_zone_body_entered)
 	attract_zone.body_exited.connect(_on_attract_zone_body_exited)
-	kill_zone.body_entered.connect(_on_kill_zone_body_entered)
 	
 	# Create particles for the attract zone
 	_create_attract_zone_particles()
@@ -41,14 +40,8 @@ func _on_attract_zone_body_exited(body: Node2D) -> void:
 		player = null
 		
 # When player enters the kill zone
-func _on_kill_zone_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D and body.name == "Player":
-		# Call the player's crash function if they enter kill zone
-		if body.has_method("_crash"):
-			body._crash()
-			queue_free()
 			
-# Create particles for the attract zone
+# Create particles for the attract zon`e
 func _create_attract_zone_particles() -> void:
 	var particles = CPUParticles2D.new()
 	add_child(particles)
