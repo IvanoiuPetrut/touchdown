@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var thurster_particles: CPUParticles2D = $ThursterParticles
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_2d: Camera2D = %Camera2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 # Camera settings
 const CAMERA_OFFSET = Vector2(-43, 0)  # Offset camera to the left of player

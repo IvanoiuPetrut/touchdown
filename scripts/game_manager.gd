@@ -10,6 +10,9 @@ extends Node
 @onready var timer_finish_level: Timer = %TimerFinishLevel
 @onready var level_finish: CanvasLayer = %LevelFinish
 
+# Add GeneralEnums for player sprite tint
+const GeneralEnums = preload("res://data/enums/general.gd")
+
 # Game state
 var current_level = 1
 var current_world = 1
@@ -175,6 +178,9 @@ func _handle_level_selection_from_anim():
 	# Update the tint color for the animated texture rect
 	game_ui.update_tint_color(current_world)
 	
+	# Update the player sprite tint
+	_update_player_tint(current_world)
+	
 	# Get the fuel value for this level with error handling
 	var level_fuel = 100.0  # Default value if not found
 	var world_key = "world_" + str(current_world)
@@ -248,8 +254,20 @@ func _handle_world_change(world_id: int):
 	var color_index = world_id - 1;
 	game_background._set_gradient(color_index)
 	game_ui.update_tint_color(world_id)
-
+	
+	# Update player sprite tint directly
+	_update_player_tint(world_id)
 
 func _on_timer_finish_level_timeout() -> void:
 	#Play animations from left to right, call retrun to menu and finish animation
 	animation_scene_player.play("go_back_to_level_selection")
+
+# Helper function to update player sprite tint
+func _update_player_tint(world_id: int) -> void:
+	if player and player.get_node("Sprite2D") and player.get_node("Sprite2D").material:
+		var color_index = world_id - 1
+		var planet_colors = GeneralEnums.new().get_planet_colors(color_index)
+		var tint_color = Color(planet_colors[0])
+		
+		# Set the shader parameter
+		player.get_node("Sprite2D").material.set_shader_parameter("tint_color", tint_color)
