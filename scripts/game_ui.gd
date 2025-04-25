@@ -11,6 +11,7 @@ const GeneralEnums = preload("res://data/enums/general.gd")
 @onready var horizontal_speed_label = $PanelContainer/MarginContainer/GridContainer/HorizontalSpeedLabel
 @onready var vertical_speed_label = $PanelContainer/MarginContainer/GridContainer/VerticalSpeedLabel
 @onready var mission_status_label = $PanelContainer/MarginContainer/GridContainer/StatusLabel
+@onready var high_score_label = $PanelContainer/MarginContainer/GridContainer/HighScoreLabel
 
 @onready var fuel_icon: Label = $PanelContainer/MarginContainer/GridContainer/FuelIcon
 @onready var time_icon: Label = $PanelContainer/MarginContainer/GridContainer/TimeIcon
@@ -19,6 +20,7 @@ const GeneralEnums = preload("res://data/enums/general.gd")
 @onready var vertical_speed_icon: Label = $PanelContainer/MarginContainer/GridContainer/VerticalSpeedIcon
 @onready var status_icon: Label = $PanelContainer/MarginContainer/GridContainer/StatusIcon
 @onready var score_icon: Label = $PanelContainer/MarginContainer/GridContainer/ScoreIcon
+@onready var high_score_icon: Label = $PanelContainer/MarginContainer/GridContainer/HighScoreIcon
 
 
 #@onready var high_score_label = $GridContainer/HighScoreLabel
@@ -53,9 +55,8 @@ func update_score(value: int):
 
 # Update high score display
 func update_high_score(value: int):
-	#if high_score_label:
-		#high_score_label.text = "%d" % value
-	pass
+	if high_score_label:
+		high_score_label.text = "%d" % value
 
 # Update speed displays
 func update_horizontal_speed(value: float):
@@ -153,6 +154,8 @@ func update_ui_label_colors(background_color: Color):
 		fuel_label.add_theme_color_override("font_color", current_label_color)
 	if score_label:
 		score_label.add_theme_color_override("font_color", current_label_color)
+	if high_score_label:
+		high_score_label.add_theme_color_override("font_color", current_label_color)
 	if mission_time_label:
 		mission_time_label.add_theme_color_override("font_color", current_label_color)
 	if altitude_label:
@@ -179,6 +182,8 @@ func update_ui_label_colors(background_color: Color):
 		status_icon.add_theme_color_override("font_color", icon_color)
 	if score_icon:
 		score_icon.add_theme_color_override("font_color", icon_color)
+	if high_score_icon:
+		high_score_icon.add_theme_color_override("font_color", icon_color)
 
 # These functions remain for compatibility with the game manager, but don't do anything
 func show_restart_button(visible: bool):

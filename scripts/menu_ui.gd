@@ -41,6 +41,11 @@ const GeneralEnums = preload("res://data/enums/general.gd")
 
 @onready var main_menu_background: TextureRect = $MainMenuBackground
 
+@onready var selected_level: Label = $Panel/VBoxContainer/SelectedLevel
+@onready var high_score_icon: Label = $Panel/VBoxContainer/HighScoreIcon
+@onready var high_score_label: Label = $Panel/VBoxContainer/HighScoreLabel
+
+
 # Signal for level selection
 signal level_selected(world_id: int, level_id: int)
 signal world_changed(world_id: int)

@@ -61,16 +61,16 @@ func _update_ui():
 		# Update altitude
 		game_ui.update_altitude(player.altitude)
 		
-		# Update score
-		game_ui.update_score(player.score)
+		# Update score - convert to integer
+		game_ui.update_score(int(player.score))
 		level_finish._change_mission_end_score(str(int(player.score)))
 		
 		# Update mission status
 		game_ui.update_mission_status(player.mission_status)
 		
 		# Update high score if needed
-		if player.score > high_score:
-			high_score = player.score
+		if int(player.score) > high_score:
+			high_score = int(player.score)
 			game_ui.update_high_score(high_score)
 		
 		# Update level
@@ -104,6 +104,12 @@ func _handle_crash():
 	game_ui.show_message("CRASHED!")
 	timer_finish_level.start()
 	level_finish._change_mission_end_status("CRASHED")
+	
+	# Display current high score
+	var world_key = "world_" + str(current_world)
+	var level_index = current_level - 1
+	level_finish._change_mission_end_high_score(str(Levels.Database[world_key].levels[level_index].high_score))
+	
 	animation_scene_player.play("show_level_stats")
 
 	# Wait for a moment before returning to menu
@@ -117,6 +123,12 @@ func _handle_out_of_fuel():
 	# Show out of fuel message via mission status
 	game_ui.show_message("OUT OF FUEL!")
 	level_finish._change_mission_end_status("OUT OF FUEL")
+	
+	# Display current high score
+	var world_key = "world_" + str(current_world)
+	var level_index = current_level - 1
+	level_finish._change_mission_end_high_score(str(Levels.Database[world_key].levels[level_index].high_score))
+	
 	timer_finish_level.start()
 	animation_scene_player.play("show_level_stats")
 	# Wait for a moment before returning to menu
@@ -133,6 +145,22 @@ func _handle_successful_landing():
 	level_finish._change_mission_end_status("LANDED")
 	animation_scene_player.play("show_level_stats")
 	
+	# Update high score if current score is higher
+	var world_key = "world_" + str(current_world)
+	var level_index = current_level - 1
+	var current_high_score = Levels.Database[world_key].levels[level_index].high_score
+	
+	# Convert score to integer before comparing and saving
+	var current_score = int(player.score)
+	
+	if current_score > current_high_score:
+		Levels.Database[world_key].levels[level_index].high_score = current_score
+		print("New high score: ", current_score)
+		# Save progress to persist high score
+		Levels.save_progress()
+	
+	# Update high score display in the level finish UI
+	level_finish._change_mission_end_high_score(str(Levels.Database[world_key].levels[level_index].high_score))
 	
 	# Unlock the next level
 	_unlock_next_level()
@@ -194,6 +222,12 @@ func _handle_level_selection_from_anim():
 			# Check if the level has a fuel property
 			if level_data.has("fuel"):
 				level_fuel = level_data.fuel
+			
+			# Update high score display if available
+			if level_data.has("high_score"):
+				game_ui.update_high_score(level_data.high_score)
+				# Also update high score display in the level finish UI
+				level_finish._change_mission_end_high_score(str(level_data.high_score))
 	
 	# Reset player when starting a new level
 	player.reset_player(level_fuel)

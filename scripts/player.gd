@@ -24,7 +24,7 @@ const MAX_LANDING_ANGLE = 0.3  # Maximum angle (in radians) for safe landing (ab
 
 # Game variables - for UI display and game mechanics
 var fuel = 100.0           # Default starting fuel amount (will be overridden by level data)
-var score = 0              # Player score
+var score = 0              # Player score (integer)
 var mission_time = 0.0     # Time elapsed in current mission
 var altitude = 0.0         # Current altitude from surface
 var horizontal_speed = 0.0 # Horizontal speed component
@@ -241,8 +241,8 @@ func _crash():
 	# Start animation for explosion
 	animation_player.play("explosion")
 	
-	# Reduce score on crash
-	score = max(0, score - 25)
+	# Reduce score on crash - ensure it's an integer
+	score = max(0, int(score) - 25)
 	# Notify UI
 	emit_signal("stats_changed")
 
@@ -255,8 +255,8 @@ func _land_successfully():
 	success_landing.play()
 	
 	# Calculate landing score based on remaining fuel, time, and precision
-	var fuel_bonus = fuel * 2
-	var time_bonus = max(0, 300 - mission_time) # Bonus decreases with time
+	var fuel_bonus = int(fuel * 2)
+	var time_bonus = int(max(0, 300 - mission_time)) # Bonus decreases with time
 	var precision_bonus = 100 # Placeholder - could be based on distance to target
 	
 	var landing_score = fuel_bonus + time_bonus + precision_bonus
@@ -282,8 +282,8 @@ func _out_of_fuel():
 	# Play explosion sound since this is also a failure
 	explosion_sound.play()
 	
-	# Reduce score on fuel-out (less than a crash)
-	score = max(0, score - 15)
+	# Reduce score on fuel-out (less than a crash) - ensure it's an integer
+	score = max(0, int(score) - 15)
 	
 	# Notify UI
 	emit_signal("stats_changed")
