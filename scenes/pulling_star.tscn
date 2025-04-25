@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b05fv080kwhl5"]
+[gd_scene load_steps=56 format=3 uid="uid://b05fv080kwhl5"]
 
 [ext_resource type="Script" uid="uid://5citlur6y5md" path="res://scripts/pulling_star.gd" id="1_6xvvx"]
 [ext_resource type="Texture2D" uid="uid://col8v5jyepinj" path="res://assets/sprites/pulling_star.png" id="1_xjrrf"]
@@ -364,6 +364,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mk444"]
 radius = 76.2365
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xvvx"]
+radius = 19.0263
+
 [node name="PullingStar" type="Node2D"]
 script = ExtResource("1_6xvvx")
 
@@ -372,7 +375,12 @@ sprite_frames = SubResource("SpriteFrames_l8wcq")
 autoplay = "default"
 frame_progress = 0.053239
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttractZone" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractZone"]
 shape = SubResource("CircleShape2D_mk444")
+
+[node name="KillZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("CircleShape2D_6xvvx")
