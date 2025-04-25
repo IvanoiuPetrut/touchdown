@@ -34,6 +34,7 @@ var mission_status = "IN PROGRESS" # Current mission status
 # State tracking
 var landed = false
 var crashed = false
+var initial_position = Vector2.ZERO
 
 # Fuel consumption
 const FUEL_CONSUMPTION_RATE = 10.0 # Fuel used per second when boosting
@@ -45,6 +46,7 @@ signal stats_changed
 @onready var ray_cast = $RayCastDistanceToGround
 
 func _ready():
+	initial_position = global_position
 	# Initialize the player
 	# Make sure raycast is enabled and pointing downward
 	if ray_cast:
@@ -232,7 +234,6 @@ func _crash():
 	
 	# Reduce score on crash
 	score = max(0, score - 25)
-	
 	# Notify UI
 	emit_signal("stats_changed")
 

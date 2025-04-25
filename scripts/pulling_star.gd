@@ -46,6 +46,7 @@ func _on_kill_zone_body_entered(body: Node2D) -> void:
 		# Call the player's crash function if they enter kill zone
 		if body.has_method("_crash"):
 			body._crash()
+			queue_free()
 			
 # Create particles for the attract zone
 func _create_attract_zone_particles() -> void:
