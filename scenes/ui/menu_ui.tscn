@@ -18,9 +18,9 @@ shader = ExtResource("2_qn5cm")
 shader_parameter/first_color = Color(0.202538, 0.888111, 0.753163, 1)
 shader_parameter/second_color = Color(0.921325, 0, 0.348812, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_01m71"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
 atlas = ExtResource("2_m2dew")
-region = Rect2(1480, 0, 740, 460)
+region = Rect2(2220, 0, 740, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf5lx"]
 atlas = ExtResource("2_m2dew")
@@ -30,9 +30,9 @@ region = Rect2(0, 0, 740, 460)
 atlas = ExtResource("2_m2dew")
 region = Rect2(740, 0, 740, 460)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kid13"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_01m71"]
 atlas = ExtResource("2_m2dew")
-region = Rect2(2220, 0, 740, 460)
+region = Rect2(1480, 0, 740, 460)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kybdo"]
 atlas = ExtResource("2_m2dew")
@@ -72,9 +72,9 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f48gr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujtr8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5wv6"]
 atlas = ExtResource("2_tner2")
-region = Rect2(4032, 0, 96, 96)
+region = Rect2(3552, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa3d6"]
 atlas = ExtResource("2_tner2")
@@ -224,10 +224,6 @@ region = Rect2(3360, 0, 96, 96)
 atlas = ExtResource("2_tner2")
 region = Rect2(3456, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5wv6"]
-atlas = ExtResource("2_tner2")
-region = Rect2(3552, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuxrh"]
 atlas = ExtResource("2_tner2")
 region = Rect2(3648, 0, 96, 96)
@@ -243,6 +239,10 @@ region = Rect2(3840, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnulq"]
 atlas = ExtResource("2_tner2")
 region = Rect2(3936, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujtr8"]
+atlas = ExtResource("2_tner2")
+region = Rect2(4032, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1r044"]
 atlas = ExtResource("2_tner2")
@@ -430,6 +430,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tarpx"]
+atlas = ExtResource("1_tner2")
+region = Rect2(3936, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tner2"]
 atlas = ExtResource("1_tner2")
 region = Rect2(0, 0, 96, 96)
@@ -593,10 +597,6 @@ region = Rect2(3744, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_osn1c"]
 atlas = ExtResource("1_tner2")
 region = Rect2(3840, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tarpx"]
-atlas = ExtResource("1_tner2")
-region = Rect2(3936, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vp5kh"]
 atlas = ExtResource("1_tner2")
@@ -788,6 +788,10 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj1dx"]
+atlas = ExtResource("4_3y6qt")
+region = Rect2(3936, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljdrx"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(0, 0, 96, 96)
@@ -951,10 +955,6 @@ region = Rect2(3744, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b73q6"]
 atlas = ExtResource("4_3y6qt")
 region = Rect2(3840, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yj1dx"]
-atlas = ExtResource("4_3y6qt")
-region = Rect2(3936, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejcyc"]
 atlas = ExtResource("4_3y6qt")
@@ -1303,10 +1303,10 @@ offset_left = -50.0
 offset_top = -50.0
 offset_right = 690.0
 offset_bottom = 410.0
-texture = SubResource("AtlasTexture_01m71")
+texture = SubResource("AtlasTexture_kid13")
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_rn2cm")
-frame_index = 2
+frame_index = 3
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
@@ -1363,11 +1363,11 @@ text = "<"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_ujtr8")
+texture = SubResource("AtlasTexture_u5wv6")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_4tn76")
-frame_index = 42
+frame_index = 37
 auto_play = true
 playing = true
 
@@ -1375,10 +1375,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_tner2")
+texture = SubResource("AtlasTexture_tarpx")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_b5e6c")
+frame_index = 41
 auto_play = true
 playing = true
 
@@ -1386,10 +1387,11 @@ playing = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-texture = SubResource("AtlasTexture_ljdrx")
+texture = SubResource("AtlasTexture_yj1dx")
 expand_mode = 2
 script = ExtResource("1_b5e6c")
 sprites = SubResource("SpriteFrames_01m71")
+frame_index = 41
 auto_play = true
 playing = true
 
@@ -1701,30 +1703,31 @@ text = "Land"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="."]
+[node name="CurrentLevelPanel" type="Panel" parent="."]
 offset_left = 516.0
 offset_top = 130.0
 offset_right = 556.0
 offset_bottom = 170.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nypqd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CurrentLevelPanel"]
 layout_mode = 0
 offset_left = -34.0
 offset_top = -60.0
 offset_right = 98.0
 offset_bottom = 4.0
 
-[node name="SelectedLevel" type="Label" parent="Panel/VBoxContainer"]
+[node name="SelectedLevel" type="Label" parent="CurrentLevelPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Level 4"
+text = "Select level"
+autowrap_mode = 1
 
-[node name="HighScoreIcon" type="Label" parent="Panel/VBoxContainer"]
+[node name="HighScoreIcon" type="Label" parent="CurrentLevelPanel/VBoxContainer"]
 layout_mode = 2
 text = "High Score"
 
-[node name="HighScoreLabel" type="Label" parent="Panel/VBoxContainer"]
+[node name="HighScoreLabel" type="Label" parent="CurrentLevelPanel/VBoxContainer"]
 layout_mode = 2
 text = "540.34"
 

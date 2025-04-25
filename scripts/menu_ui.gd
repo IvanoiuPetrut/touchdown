@@ -41,9 +41,10 @@ const GeneralEnums = preload("res://data/enums/general.gd")
 
 @onready var main_menu_background: TextureRect = $MainMenuBackground
 
-@onready var selected_level: Label = $Panel/VBoxContainer/SelectedLevel
-@onready var high_score_icon: Label = $Panel/VBoxContainer/HighScoreIcon
-@onready var high_score_label: Label = $Panel/VBoxContainer/HighScoreLabel
+@onready var selected_level: Label = $CurrentLevelPanel/VBoxContainer/SelectedLevel
+@onready var high_score_icon: Label = $CurrentLevelPanel/VBoxContainer/HighScoreIcon
+@onready var high_score_label: Label = $CurrentLevelPanel/VBoxContainer/HighScoreLabel
+@onready var current_level_panel: Panel = $CurrentLevelPanel
 
 
 # Signal for level selection
@@ -51,7 +52,7 @@ signal level_selected(world_id: int, level_id: int)
 signal world_changed(world_id: int)
 
 var current_planet_id : int = 1
-var selected_level_id : int
+var selected_level_id : int = 0  # Change to 0 to indicate no selection initially
 
 
 # Called when the node enters the scene tree for the first time.
@@ -63,7 +64,14 @@ func _ready() -> void:
 	_update_level_buttons()
 	_toggle_panel_world_selector(true)
 	_toggle_panel_level_selector(false)
+	current_level_panel.visible = false
 	_setup_background_shader()
+	
+	# Initialize UI elements visibility
+	selected_level.text = "Select level"
+	high_score_icon.visible = false
+	high_score_label.visible = false
+	btn_land.disabled = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -116,6 +124,14 @@ func _on_button_deploy_pressed() -> void:
 	_show_correct_world_panel() # Show the panel for current planet
 	_toggle_panel_world_selector(false)
 	_toggle_panel_level_selector(true)
+	current_level_panel.visible = true
+	
+	# Reset selection UI when entering level selection
+	selected_level.text = "Select a level"
+	high_score_icon.visible = false
+	high_score_label.visible = false
+	btn_land.disabled = true
+	selected_level_id = 0
 
 # Connect signals for all level buttons
 func _connect_level_buttons() -> void:
@@ -176,11 +192,24 @@ func _show_correct_world_panel() -> void:
 
 # Handle level button pressed event
 func _on_level_button_pressed(world_id: int, level_id: int) -> void:
-	#emit_signal("level_selected", world_id, level_id)
 	selected_level_id = level_id
 	print(selected_level_id)
-	#_toggle_panel_level_selector(false)
-	#_toggle_panel_world_selector(true)
+	
+	# Update UI elements for selected level
+	selected_level.text = "Level " + str(level_id)
+	
+	# Show high score for the selected level
+	var world_key = "world_" + str(current_planet_id)
+	if Levels.Database.has(world_key):
+		var level_index = level_id - 1
+		if level_index >= 0 and level_index < Levels.Database[world_key].levels.size():
+			var high_score = Levels.Database[world_key].levels[level_index].high_score
+			high_score_label.text = str(high_score)
+			high_score_icon.visible = true
+			high_score_label.visible = true
+			
+	# Enable the land button since a level is selected
+	btn_land.disabled = false
 
 # Handles the pressed event on the Land button
 func _on_land_button_pressed() -> void:
@@ -196,6 +225,14 @@ func _on_land_button_pressed() -> void:
 func _on_button_close_level_select_pressed() -> void:
 	_toggle_panel_world_selector(true)
 	_toggle_panel_level_selector(false)
+	current_level_panel.visible = false
+	
+	# Reset selection when closing level selection
+	selected_level_id = 0
+	selected_level.text = "Select a level"
+	high_score_icon.visible = false
+	high_score_label.visible = false
+	btn_land.disabled = true
 
 
 func _on_button_next_planet_pressed() -> void:
@@ -208,6 +245,13 @@ func _on_button_next_planet_pressed() -> void:
 		# Update background gradient with new planet colors
 		emit_signal("world_changed", current_planet_id)
 		set_background_gradient(current_planet_id - 1)
+		
+		# Reset level selection when changing planets
+		selected_level_id = 0
+		selected_level.text = "Select a level"
+		high_score_icon.visible = false
+		high_score_label.visible = false
+		btn_land.disabled = true
 
 
 func _on_button_previous_planet_pressed() -> void:
@@ -220,6 +264,13 @@ func _on_button_previous_planet_pressed() -> void:
 		# Update background gradient with new planet colors
 		emit_signal("world_changed", current_planet_id)
 		set_background_gradient(current_planet_id - 1)
+		
+		# Reset level selection when changing planets
+		selected_level_id = 0
+		selected_level.text = "Select a level"
+		high_score_icon.visible = false
+		high_score_label.visible = false
+		btn_land.disabled = true
 
 # Sets up the background shader with custom colors
 func _setup_background_shader() -> void:
