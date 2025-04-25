@@ -38,7 +38,7 @@ static var Database = {
 	},
 	"world_2" : {
 		"name" : "World 2",
-		"unlocked" : true,
+		"unlocked" : false,
 		"id" : 2,
 		"levels" : [
 			{
@@ -73,7 +73,7 @@ static var Database = {
 	},
 	"world_3" : {
 		"name" : "World 3",
-		"unlocked" : true,
+		"unlocked" : false,
 		"id" : 3,
 		"levels" : [
 			{

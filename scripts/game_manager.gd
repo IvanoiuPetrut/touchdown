@@ -196,6 +196,9 @@ func _handle_level_selection(world_id: int, level_id: int):
 	current_level = level_id
 	animation_scene_player.play("initiate_change_scene")
 	
+	# Hide new world label when starting a level
+	menu_ui._handle_level_selection_from_game_manager()
+
 func _handle_level_selection_from_anim():
 	_change_level(current_world, current_level)
 	menu_ui.visible = false
@@ -252,6 +255,8 @@ func _unlock_next_level():
 			# Unlock the next world
 			Levels.Database[world_key].unlocked = true
 			print("Unlocked World " + str(next_world))
+			# Show new world notification
+			menu_ui.show_new_world_notification()
 		
 		# Unlock the next level
 		if next_level <= 4: # Each world has 4 levels
@@ -280,6 +285,9 @@ func _return_to_menu():
 	menu_ui.visible = true
 	game_ui.visible = false  # Hide game UI when returning to menu
 	level_finish.visible = false
+	
+	# Hide the new world label when returning to menu
+	menu_ui._on_return_to_menu()
 	
 	# Update the level buttons to reflect newly unlocked levels
 	menu_ui._update_level_buttons()

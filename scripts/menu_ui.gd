@@ -46,6 +46,7 @@ const GeneralEnums = preload("res://data/enums/general.gd")
 @onready var high_score_label: Label = $CurrentLevelPanel/VBoxContainer/HighScoreLabel
 @onready var current_level_panel: Panel = $CurrentLevelPanel
 
+@onready var new_world_label: Label = $PanelWorldSelector/VBoxContainer/MarginContainer/VBoxContainer/NewWorldLabel
 
 # Signal for level selection
 signal level_selected(world_id: int, level_id: int)
@@ -72,6 +73,7 @@ func _ready() -> void:
 	high_score_icon.visible = false
 	high_score_label.visible = false
 	btn_land.disabled = true
+	new_world_label.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -286,3 +288,17 @@ func set_background_gradient(planet_type: int) -> void:
 		var planet_colors = GeneralEnums.new().get_planet_colors(planet_type)
 		main_menu_background.material.set_shader_parameter("first_color", Color(planet_colors[0]))
 		main_menu_background.material.set_shader_parameter("second_color", Color(planet_colors[1]))
+
+# This function will be called from the game_manager when a new world is unlocked
+func show_new_world_notification():
+	new_world_label.visible = true
+
+# Update to handle level selection from the GameManager
+func _handle_level_selection_from_game_manager():
+	# Hide the new world label after playing any level
+	new_world_label.visible = false
+
+# Also connect to the signal for returning to menu from game
+func _on_return_to_menu():
+	# Hide the new world label when returning to menu
+	new_world_label.visible = false
