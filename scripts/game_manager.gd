@@ -172,6 +172,9 @@ func _handle_level_selection_from_anim():
 	world.process_mode = Node.PROCESS_MODE_INHERIT
 	menu_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	# Update the tint color for the animated texture rect
+	game_ui.update_tint_color(current_world)
+	
 	# Get the fuel value for this level with error handling
 	var level_fuel = 100.0  # Default value if not found
 	var world_key = "world_" + str(current_world)
@@ -244,6 +247,7 @@ func _return_to_menu():
 func _handle_world_change(world_id: int):
 	var color_index = world_id - 1;
 	game_background._set_gradient(color_index)
+	game_ui.update_tint_color(world_id)
 
 
 func _on_timer_finish_level_timeout() -> void:

@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+# Add this line to preload the general.gd file for the enums
+const GeneralEnums = preload("res://data/enums/general.gd")
+
 # UI Elements - all simple labels
 @onready var fuel_label = $PanelContainer/MarginContainer/GridContainer/FuelLabel
 @onready var score_label = $PanelContainer/MarginContainer/GridContainer/ScoreLabel
@@ -14,6 +17,12 @@ extends CanvasLayer
 
 # Base color for UI text
 var base_color = Color("#4c4e50")
+var current_label_color = base_color
+
+# Called when the node enters the scene tree for the first time
+func _ready():
+	# Initialize with default world (world 1) colors
+	update_tint_color(1)
 
 # Format for time display (MM:SS.ms)
 func format_time(seconds: float) -> String:
@@ -51,7 +60,7 @@ func update_vertical_speed(value: float):
 		if value > 80:  # Near the dangerous landing velocity
 			vertical_speed_label.add_theme_color_override("font_color", Color(1, 0, 0))  # Red
 		else:
-			vertical_speed_label.add_theme_color_override("font_color", base_color)
+			vertical_speed_label.add_theme_color_override("font_color", current_label_color)
 
 # Update altitude display
 func update_altitude(value: float):
@@ -71,7 +80,7 @@ func update_mission_status(status: String):
 		# Update color based on status
 		match status:
 			"IN PROGRESS":
-				mission_status_label.add_theme_color_override("font_color", base_color)
+				mission_status_label.add_theme_color_override("font_color", current_label_color)
 			"LANDED":
 				mission_status_label.add_theme_color_override("font_color", Color(0, 1, 0))  # Green
 			"CRASHED":
@@ -89,6 +98,51 @@ func update_level(value: int):
 func show_message(text: String):
 	if mission_status_label and !text.is_empty():
 		mission_status_label.text = text
+
+# Function to update the tint color of the animated texture rect based on world ID
+func update_tint_color(world_id: int):
+	if animated_texture_rect and animated_texture_rect.material:
+		# Get the first color from the planet colors array for the given world
+		var color_index = world_id - 1
+		var planet_colors = GeneralEnums.new().get_planet_colors(color_index)
+		var tint_color = Color(planet_colors[0])
+		
+		# Set the shader parameter
+		animated_texture_rect.material.set_shader_parameter("tint_color", tint_color)
+		
+		# Update UI label colors with a contrasting color
+		update_ui_label_colors(tint_color)
+
+# Calculate a contrasting color for good readability
+func get_contrast_color(color: Color) -> Color:
+	# Calculate luminance using standard formula
+	var luminance = 0.299 * color.r + 0.587 * color.g + 0.114 * color.b
+	
+	# If the color is dark, return a light color, and vice versa
+	if luminance < 0.5:
+		return Color(0.9, 0.9, 0.9) # Light color for dark backgrounds
+	else:
+		return Color(0.1, 0.1, 0.25) # Dark blue-ish color for light backgrounds
+
+# Update all UI labels with the new contrasting color
+func update_ui_label_colors(background_color: Color):
+	current_label_color = get_contrast_color(background_color)
+	
+	# Update all labels with the new color
+	if fuel_label:
+		fuel_label.add_theme_color_override("font_color", current_label_color)
+	if score_label:
+		score_label.add_theme_color_override("font_color", current_label_color)
+	if mission_time_label:
+		mission_time_label.add_theme_color_override("font_color", current_label_color)
+	if altitude_label:
+		altitude_label.add_theme_color_override("font_color", current_label_color)
+	if horizontal_speed_label:
+		horizontal_speed_label.add_theme_color_override("font_color", current_label_color)
+	if vertical_speed_label and vertical_speed_label.get_theme_color("font_color") != Color(1, 0, 0):
+		vertical_speed_label.add_theme_color_override("font_color", current_label_color)
+	if mission_status_label and mission_status_label.text == "IN PROGRESS":
+		mission_status_label.add_theme_color_override("font_color", current_label_color)
 
 # These functions remain for compatibility with the game manager, but don't do anything
 func show_restart_button(visible: bool):

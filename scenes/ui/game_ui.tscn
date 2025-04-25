@@ -12,17 +12,13 @@ shader_parameter/speed = 1.0
 shader_parameter/tint_color = Color(1, 1, 1, 1)
 shader_parameter/tint_strength = 0.611
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bxde6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvtb5"]
 atlas = ExtResource("2_fct72")
-region = Rect2(495, 0, 99, 360)
+region = Rect2(99, 0, 99, 360)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrkc0"]
 atlas = ExtResource("2_fct72")
 region = Rect2(0, 0, 99, 360)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvtb5"]
-atlas = ExtResource("2_fct72")
-region = Rect2(99, 0, 99, 360)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7elv"]
 atlas = ExtResource("2_fct72")
@@ -35,6 +31,10 @@ region = Rect2(297, 0, 99, 360)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1bdg"]
 atlas = ExtResource("2_fct72")
 region = Rect2(396, 0, 99, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxde6"]
+atlas = ExtResource("2_fct72")
+region = Rect2(495, 0, 99, 360)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_opxtl"]
 animations = [{
@@ -71,10 +71,10 @@ script = ExtResource("1_rns2u")
 material = SubResource("ShaderMaterial_v1bdg")
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("AtlasTexture_bxde6")
+texture = SubResource("AtlasTexture_yvtb5")
 script = ExtResource("3_ru5ln")
 sprites = SubResource("SpriteFrames_opxtl")
-frame_index = 5
+frame_index = 1
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://dnra5sqwfaxhr"
