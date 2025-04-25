@@ -11,6 +11,16 @@ const GeneralEnums = preload("res://data/enums/general.gd")
 @onready var horizontal_speed_label = $PanelContainer/MarginContainer/GridContainer/HorizontalSpeedLabel
 @onready var vertical_speed_label = $PanelContainer/MarginContainer/GridContainer/VerticalSpeedLabel
 @onready var mission_status_label = $PanelContainer/MarginContainer/GridContainer/StatusLabel
+
+@onready var fuel_icon: Label = $PanelContainer/MarginContainer/GridContainer/FuelIcon
+@onready var time_icon: Label = $PanelContainer/MarginContainer/GridContainer/TimeIcon
+@onready var altitude_icon: Label = $PanelContainer/MarginContainer/GridContainer/AltitudeIcon
+@onready var horizontal_speed_icon: Label = $PanelContainer/MarginContainer/GridContainer/HorizontalSpeedIcon
+@onready var vertical_speed_icon: Label = $PanelContainer/MarginContainer/GridContainer/VerticalSpeedIcon
+@onready var status_icon: Label = $PanelContainer/MarginContainer/GridContainer/StatusIcon
+@onready var score_icon: Label = $PanelContainer/MarginContainer/GridContainer/ScoreIcon
+
+
 #@onready var high_score_label = $GridContainer/HighScoreLabel
 #@onready var level_label = $GridContainer/LevelLabel
 @onready var animated_texture_rect: AnimatedTextureRect = $AnimatedTextureRect
@@ -124,9 +134,19 @@ func get_contrast_color(color: Color) -> Color:
 	else:
 		return Color(0.1, 0.1, 0.25) # Dark blue-ish color for light backgrounds
 
+# Calculate a complementary color for icons that's different but harmonizes with the main contrast color
+func get_icon_color(main_contrast_color: Color) -> Color:
+	# If we're using the light contrast color, use a darker grey for icons
+	if main_contrast_color.r > 0.7:  # Likely the light color
+		return Color(0.6, 0.6, 0.6)  # Darker grey but still readable on dark backgrounds
+	else:
+		# For dark contrast color, use a lighter grey
+		return Color(0.7, 0.7, 0.7)  # Light grey for dark text on light backgrounds
+		
 # Update all UI labels with the new contrasting color
 func update_ui_label_colors(background_color: Color):
 	current_label_color = get_contrast_color(background_color)
+	var icon_color = get_icon_color(current_label_color)
 	
 	# Update all labels with the new color
 	if fuel_label:
@@ -143,6 +163,22 @@ func update_ui_label_colors(background_color: Color):
 		vertical_speed_label.add_theme_color_override("font_color", current_label_color)
 	if mission_status_label and mission_status_label.text == "IN PROGRESS":
 		mission_status_label.add_theme_color_override("font_color", current_label_color)
+		
+	# Update all icon labels with the icon color for visual hierarchy
+	if fuel_icon:
+		fuel_icon.add_theme_color_override("font_color", icon_color)
+	if time_icon:
+		time_icon.add_theme_color_override("font_color", icon_color)
+	if altitude_icon:
+		altitude_icon.add_theme_color_override("font_color", icon_color)
+	if horizontal_speed_icon:
+		horizontal_speed_icon.add_theme_color_override("font_color", icon_color)
+	if vertical_speed_icon:
+		vertical_speed_icon.add_theme_color_override("font_color", icon_color)
+	if status_icon:
+		status_icon.add_theme_color_override("font_color", icon_color)
+	if score_icon:
+		score_icon.add_theme_color_override("font_color", icon_color)
 
 # These functions remain for compatibility with the game manager, but don't do anything
 func show_restart_button(visible: bool):
