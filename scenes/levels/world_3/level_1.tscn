@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://oislbuu6q4cy"]
+[gd_scene load_steps=8 format=4 uid="uid://oislbuu6q4cy"]
 
 [ext_resource type="Shader" uid="uid://d2qlidowj52tb" path="res://shaders/world_ground.gdshader" id="1_ah3fa"]
 [ext_resource type="Texture2D" uid="uid://csi1y8qiaebdb" path="res://assets/sprites/tiles_final.png" id="2_llfu8"]
 [ext_resource type="PackedScene" uid="uid://dakk67ugp7naq" path="res://scenes/landingPad.tscn" id="3_f88hv"]
+[ext_resource type="PackedScene" uid="uid://d0cw1moqkbhyg" path="res://scenes/pushing_star.tscn" id="4_dad8l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mn3a4"]
 shader = ExtResource("1_ah3fa")
@@ -617,3 +618,15 @@ tile_set = SubResource("TileSet_u6ut8")
 
 [node name="LandingPad" parent="." instance=ExtResource("3_f88hv")]
 position = Vector2(39, -78)
+
+[node name="PushingStar" parent="." instance=ExtResource("4_dad8l")]
+position = Vector2(-35, -333)
+
+[node name="PushingStar2" parent="." instance=ExtResource("4_dad8l")]
+position = Vector2(133, -169)
+
+[node name="PushingStar3" parent="." instance=ExtResource("4_dad8l")]
+position = Vector2(-312, -188)
+
+[node name="PushingStar4" parent="." instance=ExtResource("4_dad8l")]
+position = Vector2(432, -292)
