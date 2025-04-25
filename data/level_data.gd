@@ -15,38 +15,38 @@ static var Database = {
 			{
 				"name" : "Level 2",
 				"id" : 2,
-				"unlocked" : false,
+				"unlocked" : true,
 				"fuel" : 80.0,
 			},
 			{
 				"name" : "Level 3",
 				"id" : 3,
-				"unlocked" : false,
+				"unlocked" : true,
 				"fuel" : 80.0,
 			},
 			{
 				"name" : "Level 4",
 				"id" : 4,
-				"unlocked" : false,
+				"unlocked" : true,
 				"fuel" : 135.0,
 			},
 		]
 	},
 	"world_2" : {
 		"name" : "World 2",
-		"unlocked" : false,
+		"unlocked" : true,
 		"id" : 2,
 		"levels" : [
 			{
 				"name" : "Level 1",
 				"id" : 1,
-				"unlocked" : false,
+				"unlocked" : true,
 				"fuel" : 75.0,
 			},
 			{
 				"name" : "Level 2",
 				"id" : 2,
-				"unlocked" : false,
+				"unlocked" : true,
 				"fuel" : 65.0,
 			},
 			{

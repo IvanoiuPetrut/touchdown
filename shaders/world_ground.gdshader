@@ -2,6 +2,8 @@ shader_type canvas_item;
 
 uniform float aberration_amount : hint_range(0.0, 0.1) = 0.005;
 uniform float speed : hint_range(0.0, 5.0) = 1.0;
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_strength : hint_range(0.0, 1.0) = 0.5;
 
 void fragment() {
 	// Use UV instead of SCREEN_UV to work with individual tile cells
@@ -19,6 +21,12 @@ void fragment() {
 	float b = texture(TEXTURE, uv + blue_offset).b;
 	float a = texture(TEXTURE, uv).a;
 
-	// Combine channels into final color
-	COLOR = vec4(r, g, b, a);
+	// Create base color with chromatic aberration
+	vec4 aberrated_color = vec4(r, g, b, a);
+
+	// Apply tint
+	vec4 final_color = mix(aberrated_color, aberrated_color * tint_color, tint_strength);
+
+	// Set output color
+	COLOR = final_color;
 }
