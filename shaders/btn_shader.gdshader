@@ -12,25 +12,25 @@ float random(vec2 uv) {
 void fragment() {
 	// Get base texture color
 	vec4 base_color = texture(TEXTURE, UV);
-	
+
 	// Create pulsing glow effect
 	float pulse = (sin(TIME * pulse_speed) * 0.5 + 0.5) * glow_intensity;
-	
+
 	// Add subtle stars
 	float star = 0.0;
 	if (random(UV) > (1.0 - 0.002 * star_density)) {
 		star = pow(random(UV + TIME * 0.1), 20.0) * pulse * 5.0;
 	}
-	
+
 	// Mix original color with space effects
 	vec4 final_color = base_color;
-	
+
 	// Add edge glow effect
 	float edge = 1.0 - smoothstep(0.4, 0.5, distance(UV, vec2(0.5)));
 	final_color = mix(final_color, glow_color, edge * pulse * 0.3);
-	
+
 	// Add stars
 	final_color.rgb += vec3(star);
-	
+
 	COLOR = final_color;
 }

@@ -8,7 +8,15 @@ func _change_mission_end_status(value: String):
 	mission_status.text = value
 
 func _change_mission_end_score(value: String):
-	score.text = "Score: " + value
+	# Ensure the score is displayed as an integer
+	var score_value = value
+	if value.is_valid_float():
+		score_value = str(int(float(value)))
+	score.text = "Score: " + score_value
 
 func _change_mission_end_high_score(value: String):
-	high_score.text = "High Score: " + value
+	# Ensure the high score is displayed as an integer
+	var high_score_value = value
+	if value.is_valid_float():
+		high_score_value = str(int(float(value)))
+	high_score.text = "High Score: " + high_score_value

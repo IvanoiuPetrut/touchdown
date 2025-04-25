@@ -39,35 +39,35 @@ float snoise(vec2 v) {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	
+
 	// Time-based animation
 	float time = TIME * time_scale;
-	
+
 	// Get base UV with subtle distortion
 	vec2 uv = UV;
 	float noise = snoise(uv * noise_scale + time * 0.1) * distortion_strength;
 	uv += vec2(noise, noise * 0.5);
-	
+
 	// Chromatic aberration effect
 	float r = texture(TEXTURE, uv + vec2(aberration_amount, 0.0)).r;
 	float g = texture(TEXTURE, uv).g;
 	float b = texture(TEXTURE, uv - vec2(aberration_amount, 0.0)).b;
 	float a = texture(TEXTURE, uv).a;
-	
+
 	// Combine channels with original alpha
 	vec4 text_color = vec4(r, g, b, a);
-	
+
 	// Apply subtle glow effect
 	float glow_mask = a;
 	vec4 glow_effect = glow_color * glow_intensity * glow_mask;
-	
+
 	// Add subtle pulsating effect to the glow
 	float pulse = (sin(time * 3.0) * 0.5 + 0.5) * 0.3 + 0.7;
 	glow_effect *= pulse;
-	
+
 	// Combine text with glow
 	COLOR = mix(glow_effect, text_color, text_color.a);
-	
+
 	// Ensure proper alpha
 	COLOR.a = max(text_color.a, glow_effect.a * 0.7);
 }
