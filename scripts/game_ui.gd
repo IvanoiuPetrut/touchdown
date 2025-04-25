@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var mission_status_label = $PanelContainer/MarginContainer/GridContainer/StatusLabel
 #@onready var high_score_label = $GridContainer/HighScoreLabel
 #@onready var level_label = $GridContainer/LevelLabel
+@onready var animated_texture_rect: AnimatedTextureRect = $AnimatedTextureRect
 
 # Base color for UI text
 var base_color = Color("#4c4e50")
