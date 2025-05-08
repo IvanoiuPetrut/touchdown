@@ -1,4 +1,28 @@
-# Space lander
+# Touchdown
+
+Touchdown is a physics-based space lander game where players must carefully manage thrust and rotation to safely land on planetary surfaces. With limited fuel and challenging terrain, each landing attempt requires precise control and strategic planning to achieve perfect touchdown.
+
+## Gameplay
+
+The game features 3 worlds with 4 levels each. To complete a level, you must land on the designated platform with the correct angle and speed. Successfully finish all 4 levels of a world to unlock the next one. Each world introduces new challenges and terrain types to master.
+
+## Controls
+
+| Key     | Action |
+| ------- | ------ |
+| Q and E | Rotate |
+| Space   | Thrust |
+
+## Screenshots
+
+![Gameplay Screenshot 1](https://img.itch.zone/aW1hZ2UvMzUwMzU0NS8yMDg5OTkyMS5wbmc=/original/zKDddi.png)
+
+![Gameplay Screenshot 2](https://img.itch.zone/aW1hZ2UvMzUwMzU0NS8yMDg5OTk0OC5wbmc=/original/t%2FA3Oq.png)
+
+![Gameplay Screenshot 3](https://img.itch.zone/aW1hZ2UvMzUwMzU0NS8yMDg5OTk1My5wbmc=/original/Vbw36R.png)
+
+<details>
+<summary>Development Plan</summary>
 
 ## Names
 
@@ -149,3 +173,5 @@ https://lospec.com/palette-list/berry-nebula
 #4f1446
 #2e0a30
 #0d001a
+
+</details>
